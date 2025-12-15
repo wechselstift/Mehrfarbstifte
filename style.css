@@ -193,11 +193,7 @@ ul li::before {
     margin-top: 5px;
 }
 
-#footer {
-	position: relative;
-	margin:0px;
-	height: 300px;
-}
+
 
 .clear {
     clear: both;
@@ -324,6 +320,12 @@ text-shadow: 1px 1px 4px rgba(0,0,0,1), -1px -1px 3px rgba(0,0,0,1), 5px 5px 5px
 	height: 300px;
 }
 
+#footer {
+	position: relative;
+	margin:0px;
+	height: 300px;
+}
+
 #svgelement {
 	position: absolute;
     top: 0;
@@ -351,6 +353,7 @@ path {
   }
 
 }
+
 
 
 
