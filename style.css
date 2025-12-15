@@ -215,11 +215,7 @@ ul li::before {
     display: block;
 }
 
-#navitem {
-	padding-right: 15px;
-	border-right: 1px black solid;
-	font-size: 12px;
-}
+
 
 #banner-title .subtitle {
     display: block;
@@ -359,6 +355,11 @@ path {
 }
 
 
+#navitem {
+	padding-right: 15px;
+	border-right: 1px black solid;
+	font-size: 12px;
+}
 
 
 
