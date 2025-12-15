@@ -139,7 +139,7 @@ ul li::before {
 
     text-align: center;
     margin-left: 1%;
-    margin-top: 0px;      
+    margin-top: -20px;      
     box-sizing: border-box;
     position: relative;       
     z-index: 5;     
@@ -535,6 +535,7 @@ path {
     height: 96%;
     border: 1px solid #DED0BD; 
 }
+
 
 
 
