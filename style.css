@@ -491,7 +491,6 @@ path {
     background: white;
     border: 2px solid #333;
     padding: 7px;
-    border-radius: 6px;
     font-size: 13px;
 
     display: inline-block;
@@ -535,6 +534,7 @@ path {
     height: 96%;
     border: 1px solid #DED0BD; 
 }
+
 
 
 
