@@ -196,7 +196,6 @@ ul li::before {
 #footer {
     background: #eeeeee;
     padding: 10px;
-    font-size: 12px;
     text-align: center;
     border-top: 1px solid #999;
 	position: relative;
@@ -354,5 +353,6 @@ path {
   }
 
 }
+
 
 
