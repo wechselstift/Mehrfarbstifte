@@ -199,6 +199,7 @@ ul li::before {
     font-size: 12px;
     text-align: center;
     border-top: 1px solid #999;
+	height: 20%;
 }
 
 .clear {
@@ -353,3 +354,4 @@ path {
   }
 
 }
+
