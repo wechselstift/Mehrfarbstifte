@@ -195,7 +195,7 @@ ul li::before {
 
 #footer {
     background: #eeeeee;
-    padding: 10px;
+	margin:0px;
     border-top: 1px solid #999;
 	position: relative;
 }
@@ -352,6 +352,7 @@ path {
   }
 
 }
+
 
 
 
