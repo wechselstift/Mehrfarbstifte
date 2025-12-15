@@ -1,11 +1,11 @@
 body {
     margin: 0;
     padding: 0;
-    background: #cccccc; /* breite Ränder */
+    background: #cccccc; 
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Zentrierter Seitencontainer */
+
 #container {
     width: 1000px;
 	line-height: 1.4;
@@ -22,17 +22,16 @@ main::after {
     clear: both;
 }
 
-/* Banner: maximale Höhe */
 #banner img {
-    width: 100%;           /* volle Breite des Containers */
-    height: auto;          /* proportional skalieren */
-    max-height: 150px;     /* gewünschte maximale Höhe */
+    width: 100%;          
+    height: auto;          
+    max-height: 150px;     
     display: block;
-    object-fit: cover;     /* optional: skaliert und schneidet Bild, ohne zu verzerren */
+    object-fit: cover;     
 }
 
 
-/* Navigation */
+
 #navigation {
     background: #eeeeee;
     padding: 8px;
@@ -69,7 +68,7 @@ div.a {
 }
 
 ul {
-        list-style: none;      /* Standardpunkte entfernen */
+        list-style: none;      
     padding-left: 0;
     margin-left: 0;
 	
@@ -77,7 +76,7 @@ ul {
 
 ul li {
     position: relative;
-    padding-left: 40px;    /* Platz für das Bild */
+    padding-left: 40px;  
     line-height: 1.4;
 }
 
@@ -86,7 +85,7 @@ ul li::before {
     content: "";
     position: absolute;
     left: 0;
-    top: 0.5em;           /* vertikale Ausrichtung */
+    top: 0.5em;         
     width: 30px;
     height: 10px;
     background-image: url("images/arrow.png");
@@ -95,19 +94,19 @@ ul li::before {
 }
 
 .inline-icon img {
-    width: 52px;         /* Pfeilgröße anpassen */
-    height: 32px;        /* proportional oder fix */
-    vertical-align: middle; /* mittig zum Text */
-    margin-left: 6px;    /* Abstand vor/nach Text */
+    width: 52px;         
+    height: 32px;       
+    vertical-align: middle; 
+    margin-left: 6px;   
     margin-right: 3px;
 	margin-top: 5px;
 }
 
 .inline-flag img {
-    width: 15px;         /* Pfeilgröße anpassen */
-    height: 15px;        /* proportional oder fix */
-    vertical-align: middle; /* mittig zum Text */
-    margin-left: 3px;    /* Abstand vor/nach Text */
+    width: 15px;        
+    height: 15px;       
+    vertical-align: middle;
+    margin-left: 3px;   
     margin-right: 3px;
 	margin-top: 0px;
     object-fit: cover; 
@@ -116,10 +115,10 @@ ul li::before {
 
 
 .inline-arrow img {
-    width: 30px;         /* Pfeilgröße anpassen */
-    height: 10px;        /* proportional oder fix */
-    vertical-align: middle; /* mittig zum Text */
-    margin-left: 1px;    /* Abstand vor/nach Text */
+    width: 30px;        
+    height: 10px;       
+    vertical-align: middle;
+    margin-left: 1px;   
     margin-right: 3px;
 	margin-top: 0px;
     object-fit: contain; 
@@ -138,12 +137,11 @@ ul li::before {
     text-align: center;
     margin-left: 1%;
     margin-bottom: 1%;
-    margin-top: 0px;       /* nach oben über Banner hinausragen */
+    margin-top: 0px;      
     box-sizing: border-box;
-    
-    position: relative;       /* wichtig: z-index wirksam machen */
+    position: relative;       
     z-index: 5;     
-	/* liegt nun über Banner */
+	
 }
 
 .sideimage img {
@@ -173,20 +171,18 @@ ul li::before {
     text-align: center;
     margin-left: 1%;
     margin-bottom: 1%;
-    margin-top: 10%;       /* nach oben über Banner hinausragen */
+    margin-top: 10%;       
     box-sizing: border-box;
-    
-    position: relative;       /* wichtig: z-index wirksam machen */
+    position: relative;       
     z-index: 5;  
-	/* liegt nun über Banner */
 }
+	
 
 .sideimage-long img {
     width: 100%;        
     height: auto;
     max-height: 500px;
     display: block;
-
 	 object-fit: contain; 
 }
 
@@ -197,9 +193,6 @@ ul li::before {
     margin-top: 5px;
 }
 
-
-
-/* Footer */
 #footer {
     background: #eeeeee;
     padding: 10px;
@@ -208,31 +201,30 @@ ul li::before {
     border-top: 1px solid #999;
 }
 
-/* Clearfix oldschool */
 .clear {
     clear: both;
 }
 
-/* Banner-Wrapper für relative Positionierung */
 #banner-wrapper {
     position: relative;
     width: 100%;
-    max-width: 1000px; /* entspricht Containerbreite */
+    max-width: 1000px;
     margin: 0 auto;
 }
 
-/* Bannerbild */
+
 #banner-wrapper img {
     width: 100%;
     height: auto;
-    max-height: 250px;       /* gewünschte Höhe */
-    object-fit: cover;   /* skaliert und schneidet das Bild proportional */
+    max-height: 250px;      
+    object-fit: cover;   
     display: block;
 }
 
 #navitem {
 	padding-right: 15px;
 	border-right: 1px black solid;
+	font-size: 12px;
 }
 
 #banner-title .subtitle {
@@ -245,46 +237,42 @@ ul li::before {
 text-shadow: 1px 1px 4px rgba(0,0,0,1), -1px -1px 3px rgba(0,0,0,1), 5px 5px 5px rgba(0,0,0,1), -5px -5px 5px rgba(0,0,0,1);
 }
 
-/* Überlagerter Titel */
+
 #banner-title {
     position: absolute;
-    bottom: 35px; /* Abstand vom oberen Rand des Banners */
-    left: 20px; /* Abstand von links */
+    bottom: 35px;
+    left: 20px; 
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 48px; /* sehr groß */
+    font-size: 48px;
     color: white;
     text-shadow: 5px 5px 8px rgba(0,0,0,1), -5px -5px 8px rgba(0,0,0,1), 2px 2px 2px rgba(0,0,0,1);
     z-index: 2;
 }
 
 #fragebox {
-
-   width: 80%;               /* Breite der Box */
-    max-width: 600px;         /* optional: maximale Breite */
-    margin: 30px auto;        /* zentriert horizontal, Abstand oben/unten */
-    padding: 10px;            /* Innenabstand */
-    border: 1px solid #999;   /* leichte graue Border */
-    text-align: center;       /* Text zentrieren */
-    background-color: #ffffff; /* optional: weiße Hintergrundfarbe */
-    box-sizing: border-box;   /* Padding + Border werden zur Gesamtbreite gerechnet */
+   width: 80%;              
+    max-width: 600px;        
+    margin: 30px auto;      
+    padding: 10px;           
+    border: 1px solid #999; 
+    text-align: center;      
+    background-color: #ffffff; 
+    box-sizing: border-box;  
 	z-index: 100;
-	    position: relative; /* damit es über dem SVG liegt */
-
+	position: relative;
 }
 
 #frage {
-
     font-size: 22px; /* sehr groß */
     color: black;
-line-height: 1.4;
- letter-spacing: 0.4px;
+	line-height: 1.4;
+	 letter-spacing: 0.4px;
     text-shadow: 1px 1px 5px rgba(0.2,0.2,0,0), -1px -1px 5px rgba(0.2,0.2,0,0);
     z-index: 2;
 }
 
 
 .hinweis {
-
     position: relative; /* wichtig für absolute Positionierung des Textes */
     width: 80%;
     max-width: 600px;
@@ -298,25 +286,22 @@ line-height: 1.4;
 }
 
 .hinweis-text {
-
     position: absolute;
-    top: -20px;       /* nach oben aus der Box hinaus */
-    left: -10px;      /* nach links aus der Box hinaus */
+    top: -20px;      
+    left: -10px;    
     font-size: 30px;
     font-weight: bold;
-    color: red;       /* beliebige Farbe */
-    transform: rotate(-45deg);  /* schräg setzen */
-    transform-origin: 0 0;     /* Rotationspunkt obere linke Ecke */
-    z-index: 10;
+    color: red;      
+    transform: rotate(-45deg); 
+    transform-origin: 0 0;    
 }
 
 .norma {
-	
 	position: absolute;
 	right: 0px;
 	top: 0px;
-    transform: rotate(15deg) scale(0.35) translate(130px, -1250px);  /* schräg setzen */
-    transform-origin: 100 0;     /* Rotationspunkt obere linke Ecke */
+    transform: rotate(15deg) scale(0.35) translate(130px, -1250px); 
+    transform-origin: 100 0;    
     z-index: 10;
 	
 }
@@ -324,14 +309,14 @@ line-height: 1.4;
 
 #hinweisoverlay {
  position: absolute;
-    top: -20px;       /* nach oben aus der Box hinaus */
-    left: -10px;      /* nach links aus der Box hinaus */
+    top: -20px;     
+    left: -10px;      
     font-size: 35px;
     font-weight: bold;
 	font-family: Great Vibes;
-    color: black;       /* beliebige Farbe */
-    transform: rotate(-40deg);  /* schräg setzen */
-    transform-origin: 50% 180%;     /* Rotationspunkt obere linke Ecke */
+    color: black;       
+    transform: rotate(-40deg);  
+    transform-origin: 50% 180%;     
     z-index: 10;
 }
 
@@ -366,4 +351,5 @@ path {
   to {
     stroke-dashoffset: 5000;
   }
+
 }
