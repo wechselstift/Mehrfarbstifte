@@ -1,0 +1,621 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #cccccc; 
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+#container {
+    width: 1000px;
+	line-height: 1.4;
+    margin: 0 auto;
+    background: #ffffff;
+    border-left: 1px solid #999;
+    border-right: 1px solid #999;
+   font-family: Georgia, "Times New Roman", serif;
+
+}
+main::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#banner img {
+    width: 100%;          
+    height: auto;          
+    max-height: 150px;     
+    display: block;
+    object-fit: cover;     
+}
+
+
+
+#navigation {
+    background: #eeeeee;
+    padding: 8px;
+	height: 25px;
+    border-bottom: 1px solid #999;
+    padding-left: 20px;
+}
+
+#navigation a {
+    margin-right: 15px;
+    text-decoration: none;
+    color: #003366;
+    font-weight: bold;
+}
+
+#navigation a:hover {
+    text-decoration: underline;
+}
+
+/* Hauptbereich */
+#main {
+	position: relative;
+    padding: 30px;
+
+}
+
+/* Inhalt links */
+#content {
+    width: 69%;
+	height: 100%;
+    float: left;
+	padding-left: 10px;
+}
+
+div.a {
+  text-indent: 50px;
+}
+
+ul {
+        list-style: none;      
+    padding-left: 0;
+    margin-left: 0;
+	
+}
+
+ul li {
+    position: relative;
+    padding-left: 40px;  
+    line-height: 1.4;
+}
+
+
+ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.5em;         
+    width: 30px;
+    height: 10px;
+    background-image: url("images/arrow.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.inline-icon img {
+    width: 52px;         
+    height: 32px;       
+    vertical-align: middle; 
+    margin-left: 6px;   
+    margin-right: 3px;
+	margin-top: 5px;
+}
+
+.inline-flag img {
+    width: 15px;        
+    height: 15px;       
+    vertical-align: middle;
+    margin-left: 3px;   
+    margin-right: 3px;
+	margin-top: 0px;
+    object-fit: cover; 
+	border: 1px solid black;
+}
+
+
+.inline-arrow img {
+    width: 30px;        
+    height: 10px;       
+    vertical-align: middle;
+    margin-left: 1px;   
+    margin-right: 3px;
+	margin-top: 0px;
+    object-fit: contain; 
+}
+
+#bilder {
+	    max-width: 30%;
+		float: right;
+		padding-right: 10px;
+}
+
+.smallimage {
+    width: 180px;
+    height: auto;
+
+    text-align: center;
+    margin-left: 1%;
+    margin-top: -50px;      
+    box-sizing: border-box;
+    position: relative;       
+    z-index: 5;     
+	
+}
+
+
+
+.sideimage {
+    width: 250px;
+	margin-top:10%;
+    height: auto;
+    max-height: 250px;
+    text-align: center;
+    margin-left: 1%;
+    margin-bottom: 1%;
+    margin-top: 0px;      
+    box-sizing: border-box;
+    position: relative;       
+    z-index: 5;     
+	
+}
+
+.sideimage img {
+    width: 100%;        
+    height: auto;
+    max-height: 250px;
+    border: 1px solid #999;
+    display: block;
+	object-fit: scale-down;
+	margin-top: 20px;
+}
+
+.sideimage .caption {
+    font-size: 10px;
+    font-style: italic;
+    color: #555;
+    margin-top: 5px;
+}
+
+
+
+.sideimage-long {
+    float: right;
+    width: 250px;
+    max-width: 30%;
+    height: auto;
+    text-align: center;
+    margin-left: 1%;
+    margin-bottom: 1%;
+    margin-top: 10%;       
+    box-sizing: border-box;
+    position: relative;       
+    z-index: 5;  
+}
+	
+
+.sideimage-long img {
+    width: 100%;        
+    height: auto;
+    max-height: 500px;
+    display: block;
+	 object-fit: contain; 
+}
+
+.sideimage-long .caption {
+    font-size: 10px;
+    font-style: italic;
+    color: #555;
+    margin-top: 5px;
+}
+
+
+
+.clear {
+    clear: both;
+}
+
+#banner-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+
+#banner-wrapper img {
+    width: 100%;
+    height: auto;
+    max-height: 250px;      
+    object-fit: cover;   
+    display: block;
+}
+
+
+
+#banner-title .subtitle {
+    display: block;
+    font-size: 20px;
+    line-height: 1.2;
+    margin: 0;
+ letter-spacing: 1px;
+    padding: 0;
+text-shadow: 1px 1px 4px rgba(0,0,0,1), -1px -1px 3px rgba(0,0,0,1), 5px 5px 5px rgba(0,0,0,1), -5px -5px 5px rgba(0,0,0,1);
+}
+
+
+#banner-title {
+    position: absolute;
+    bottom: 35px;
+    left: 20px; 
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 48px;
+    color: white;
+    text-shadow: 5px 5px 8px rgba(0,0,0,1), -5px -5px 8px rgba(0,0,0,1), 2px 2px 2px rgba(0,0,0,1);
+    z-index: 2;
+}
+
+#fragebox {
+   width: 80%;              
+    max-width: 600px;        
+    margin: 30px auto;      
+    padding: 10px;           
+    border: 8px double #999; 
+    text-align: center;      
+    background-color: #ffffff; 
+    box-sizing: border-box;  
+	z-index: 100;
+	position: relative;
+}
+
+#frage {
+    font-size: 22px; /* sehr groß */
+    color: black;
+	line-height: 1.4;
+	 letter-spacing: 0.4px;
+    text-shadow: 1px 1px 5px rgba(0.2,0.2,0,0), -1px -1px 5px rgba(0.2,0.2,0,0);
+    z-index: 2;
+}
+
+
+.hinweis {
+    position: relative; /* wichtig für absolute Positionierung des Textes */
+    width: 80%;
+	height: 80px;
+    max-width: 600px;
+    margin: 40px auto;
+	font-size:12px;
+    padding: 10px;
+    border: 1px solid #999;
+    text-align: center;
+    background-color: #ffffff;
+    box-sizing: border-box;
+}
+
+.hinweis-text {
+    position: absolute;
+    top: -20px;      
+    left: -10px;    
+    font-size: 10px;
+    font-weight: bold;
+    color: red;      
+    transform: rotate(-45deg); 
+    transform-origin: 0 0;    
+}
+
+.norma {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+    transform: rotate(15deg) scale(0.35) translate(130px, -1250px); 
+    transform-origin: 100 0;    
+    z-index: 10;
+	
+}
+
+
+#hinweisoverlay {
+ position: absolute;
+    top: -20px;     
+    left: -10px;      
+    font-size: 35px;
+    font-weight: bold;
+	font-family: Great Vibes;
+    color: black;       
+    transform: rotate(-40deg);  
+    transform-origin: 50% 180%;     
+    z-index: 10;
+}
+
+#fragesvg {
+	position: relative;
+	margin:0px;
+	height: 300px;
+}
+
+#footer {
+	height: 300px;
+    background: #eeeeee;
+    padding: 10px;
+    font-size: 12px;
+    text-align: center;
+    border-top: 1px solid #999;
+}
+
+#svgelement {
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 99.8%;
+    height: 100%;
+    pointer-events: none;
+	margin-top: -15px;
+}
+
+svg {
+
+  background-color: none;
+}
+path {
+  stroke-dasharray: 2000;
+  animation: draw 10s infinite;
+}
+@keyframes draw {
+  from {
+    stroke-dashoffset: 0
+  }
+  to {
+    stroke-dashoffset: 5000;
+  }
+
+}
+
+
+#navitem {
+	padding-right: 15px;
+	border-right: 1px black solid;
+	font-size: 20px;
+}
+
+
+.timeline-wrapper {
+    width: 80%;
+    max-width: 80%;
+    margin: 0px auto;
+	padding-top: 20px;
+    text-align: center;
+}
+
+
+.timeline-wrapper h2 {
+    margin-bottom: 40px;
+}
+
+
+.timeline-container {
+    position: relative;
+    height: 120px;
+}
+
+
+.timeline {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0px;
+    height: 4px;
+    background: #333;
+    transform: translateY(-50%);
+}
+
+.timeline::after {
+    content: "";
+    position: absolute;
+    right: -3px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-left: 16px solid #333;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+}
+
+
+.tick {
+    position: absolute;
+    top: 50%;
+    width: 2px;
+    height: 20px;
+    background: #333;
+    transform: translateY(-50%);
+
+}
+
+
+.tick span {
+    position: absolute;
+    top: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+	background-color:white;
+	z-index:100;
+
+}
+
+
+.event {
+    position: absolute;
+    bottom: 82px;          
+    left: 0;
+    transform: translateX(-50%);
+}
+
+.event-box {
+    position: relative;
+    background: white;
+    border: 2px solid #333;
+    padding: 7px;
+    border-radius: 6px;
+    font-size: 11px;
+
+    display: inline-block;   
+    white-space: nowrap;    
+    text-align: center;      
+    min-width: 50px;         
+}
+
+
+.event-box::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -25px;        
+    width: 2px;
+    height: 25px;         
+    background: #333;
+    transform: translateX(-50%);
+	z-index:1;
+}
+
+.event.bottom {
+    position: absolute;
+    top: 100px;            
+    left: 0;
+    transform: translateX(-50%);
+}
+
+.event.bottom .event-box {
+    position: relative;
+    background: white;
+    border: 2px solid #333;
+    padding: 7px;
+    border-radius: 6px;
+    font-size: 11px;
+
+    display: inline-block;
+}
+
+.event.bottom .event-box::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 100%;       
+    width: 2px;
+    height: 40px;       
+    background: #333;
+    transform: translateX(-50%);
+}
+
+
+.frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box; 
+	pointer-eventS:none;
+}
+
+
+.frame.largest {
+    width: 99%;
+    height: 99%;
+    border: 1px solid #DED0BD; 
+}
+
+.frame.middle {
+    width: 98%;
+    height: 98%;
+    border: 5px solid #DED0BD;
+}
+
+.frame.smallest {
+    width: 96%;
+    height: 96%;
+    border: 1px solid #DED0BD; 
+}
+
+
+
+.bottom-right {
+	gap: 10px;
+	display:flex;
+    position: absolute;
+	bottom: 5px;
+	right: 10px;
+}
+
+/* Button-Style */
+.img-button {
+    width: 60px;
+	height: 40px;
+    display: flex;
+    border: 2px solid black;
+	cursor:pointer;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.img-button img {
+	object-fit: contain;
+	width: 100%;
+	height: 100%;
+	
+}
+
+.img-button:hover 
+{ 
+transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3); 
+}
+/* Bild skaliert automatisch */
+
+.mail {
+	font-size: 22px;
+	transition: 0.2s ease, box-shadow 0.2s ease; 
+}
+
+.mail:hover {
+	transform: scale(1); box-shadow: 0 3px 12px rgba(0,0,0,0.3);
+}
+
+
+.chart {
+  width: 100%;
+}
+
+.row {
+  height: 15px;
+  margin-bottom: 2px;
+}
+
+/* volle Breite als Bezug */
+.track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+
+.bar {
+  position: absolute;
+  left: var(--start);
+  width: calc(var(--end) - var(--start));
+  height: 100%;
+  border: 1px solid grey;
+  box-sizing: border-box;
+  padding-left: 15px;
+}
+
+/* Icon im Balken */
+.bar-icon {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  height: 100%;
+  
+  width: auto;
+  object-fit: contain;
+  border: 1px solid grey;
+}
