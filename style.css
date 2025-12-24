@@ -356,7 +356,7 @@ text-shadow: 1px 1px 4px rgba(0,0,0,1), -1px -1px 3px rgba(0,0,0,1), 5px 5px 5px
     width: 99.8%;
     height: 100%;
     pointer-events: none;
-	margin-top: 60px;
+	margin-top: 10px;
 }
 
 svg {
@@ -621,6 +621,7 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   object-fit: contain;
   border: 1px solid grey;
 }
+
 
 
 
