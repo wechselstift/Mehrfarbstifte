@@ -314,7 +314,7 @@ text-shadow: 1px 1px 4px rgba(0,0,0,1), -1px -1px 3px rgba(0,0,0,1), 5px 5px 5px
 	position: absolute;
 	right: 0px;
 	top: 0px;
-    transform: rotate(15deg) scale(0.35) translate(140px, -1200px);   
+    transform: rotate(15deg) scale(0.35) translate(145px, -1200px);   
     z-index: 10;
 	
 }
@@ -620,6 +620,7 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   object-fit: contain;
   border: 1px solid grey;
 }
+
 
 
 
