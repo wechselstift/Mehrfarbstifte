@@ -377,7 +377,7 @@ path {
 }
 
 
-#navitem {
+.navitem {
 	padding-right: 15px;
 	border-right: 1px black solid;
 	font-size: 20px;
@@ -620,6 +620,7 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   object-fit: contain;
   border: 1px solid grey;
 }
+
 
 
 
