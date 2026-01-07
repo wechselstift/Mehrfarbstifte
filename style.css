@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     background: #cccccc; 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif !important;
 }
 
 table, th, td {
@@ -630,6 +630,7 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   object-fit: contain;
   border: 1px solid grey;
 }
+
 
 
 
