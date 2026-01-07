@@ -15,7 +15,7 @@ table, th, td {
     margin: 0 auto;
     background: #ffffff;
     border-left: 1px solid #999;
-    border-right: 1px solid #999;
+    border-right: 1px solid #999;R
    font-family: Georgia, "Times New Roman", serif;
 
 }
@@ -389,7 +389,7 @@ path {
 .navitem {
 	padding-right: 15px;
 	border-right: 1px black solid;
-	font-size: 20px;
+	font-size: 16px;
 }
 
 
@@ -629,6 +629,7 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   object-fit: contain;
   border: 1px solid grey;
 }
+
 
 
 
