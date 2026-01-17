@@ -659,7 +659,7 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 /* Gemeinsame Eigenschaften der Boxen */
 .quoteBox {
   width: 48%;
-  height: 400px;
+  height: auto;
   background: #eee;
 }
 
@@ -692,6 +692,7 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   margin-top: 10px;
    align-self: flex-start; links ausgerichtet 
 }
+
 
 
 
