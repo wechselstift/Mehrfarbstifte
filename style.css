@@ -660,6 +660,7 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 .quoteBox {
   width: 45%;
 	margin: 5px;
+	padding: 10px;
   height: auto;
   background: #eee;
 }
@@ -691,6 +692,7 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   background: #ccc;
   align-self: flex-start; links ausgerichtet 
 }
+
 
 
 
