@@ -643,15 +643,16 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 
 
 .quoteWrapper{
-display: flex;
-  align-items: center;
-  justify-content: center; /* <--- zentriert die Boxen horizontal */
-  gap: 10px; /* optional, für gleichmäßigen Abstand */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Zentriert die quoteRow horizontal */
+  gap: 10px; /* Abstand zwischen quoteRow und bottom-bar */
 }
 
 .quoteRow {
-  display: flex;
-   align-items: center;
+ display: flex;
+  gap: 10px; /* Abstand zwischen den beiden Boxen */
 }
 
 
@@ -692,6 +693,7 @@ display: flex;
   background: white;
   align-self: flex-start; links ausgerichtet 
 }
+
 
 
 
