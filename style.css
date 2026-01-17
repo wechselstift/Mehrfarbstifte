@@ -679,13 +679,13 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 .left-box .top-left {
   top: 0;
   left: 0;
-  transform: translate(-25%, -25%);
+  transform: translate(-20%, -20%);
 }
 
 .left-box .bottom-right {
   bottom: 0;
   right: 0;
-  transform: translate(25%, 25%);
+  transform: translate(20%, 20%);
 }
 
 
@@ -697,6 +697,7 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   padding-left: 10px; /* optional: Abstand vom Rand */
 	font-style: italic;
 }
+
 
 
 
