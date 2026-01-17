@@ -659,11 +659,14 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 
 /* Gemeinsame Eigenschaften der Boxen */
 .quoteBox {
-  width: 45%;
-  margin: 5px;
-  padding: 10px;
-  height: auto;
+
+  width: 150px;
+  height: 100px;
   background: #eee;
+  display: flex;
+	  padding: 10px;
+  align-items: center;
+  justify-content: center;
 }
 
 .left-box .quote {
@@ -694,6 +697,7 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   background: white;
   align-self: flex-start; links ausgerichtet 
 }
+
 
 
 
