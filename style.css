@@ -652,7 +652,7 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 
 .quoteRow {
   display: flex;
-  align-items: flex-start;
+   align-items: center;
 }
 
 
@@ -692,6 +692,7 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   background: #ccc;
   align-self: flex-start; links ausgerichtet 
 }
+
 
 
 
