@@ -648,7 +648,7 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   display: flex;
   flex-direction: column;
   align-items: center; /* Zentriert die quoteRow horizontal */
-  gap: 10px; /* Abstand zwischen quoteRow und bottom-bar */
+  gap: 0px; /* Abstand zwischen quoteRow und bottom-bar */
 }
 
 .quoteRow {
@@ -677,13 +677,13 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 .left-box .top-left {
   top: 0;
   left: 0;
-  transform: translate(-21%, -19%);
+  transform: translate(-21%, -25%);
 }
 
 .left-box .bottom-right {
   bottom: 0;
   right: 0;
-  transform: translate(10%, 25%);
+  transform: translate(20%, 15%);
 }
 
 
@@ -694,6 +694,7 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   text-align: left;
   padding-left: 10px;
 }
+
 
 
 
