@@ -651,12 +651,14 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   align-items: center;
 }
 
-/* Wrapper für die zwei nebeneinanderliegenden Divs */
 .row {
   display: flex;
   justify-content: center;
-  gap: 10px; /* kleiner Abstand zwischen den beiden Divs */
+  gap: 10px;
+
+  align-items: stretch; 
 }
+
 
 /* Gemeinsame Eigenschaften der Boxen */
 .box {
@@ -696,6 +698,7 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   margin-top: 10px;
   align-self: flex-start; /* links ausgerichtet */
 }
+
 
 
 
