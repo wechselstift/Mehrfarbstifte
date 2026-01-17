@@ -683,7 +683,7 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 .left-box .bottom-right {
   bottom: 0;
   right: 0;
-  transform: translate(50%, -70%);
+  transform: translate(100%, -70%);
 }
 
 
@@ -694,6 +694,7 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   text-align: left;
   padding-left: 10px;
 }
+
 
 
 
