@@ -643,12 +643,10 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 
 
 .quoteWrapper{
-  width: 100%;
-  height: auto;
-  display: flex;
-  flex-direction: column;
+display: flex;
+  align-items: center;
   justify-content: center; /* <--- zentriert die Boxen horizontal */
-  gap: 10px; 
+  gap: 10px; /* optional, für gleichmäßigen Abstand */
 }
 
 .quoteRow {
@@ -694,6 +692,7 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   background: white;
   align-self: flex-start; links ausgerichtet 
 }
+
 
 
 
