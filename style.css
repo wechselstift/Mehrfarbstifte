@@ -643,59 +643,6 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 
 
 
-/* Übergeordnetes Div */
-.quoteWrapper{
-  width: 100%;
-	height: 600px;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-
-.row {
-align-items: center;
-  display: flex;
- margin-bottom: 10px;
-}
-
-
-/* Gemeinsame Eigenschaften der Boxen */
-.box {
-  width: 48%;
-  height: 400px;
-  background: #eee;
-}
-
-/* Bilder im linken Div */
-.left-box .quote {
-  position: absolute;
-  width: 50px;
-  height: 50px;
-}
-
-/* links oben */
-.left-box .top-left {
-  top: 0;
-  left: 0;
-  transform: translate(-25%, -25%);
-}
-
-/* rechts unten */
-.left-box .bottom-right {
-  bottom: 0;
-  right: 0;
-  transform: translate(25%, 25%);
-}
-
-/* Unteres Div */
-.bottom-bar {
-  width: 100%; /* Breite des größten Divs */
-  height: 15px;
-  background: #ccc;
-  margin-top: 10px;
-  /*  align-self: flex-start; links ausgerichtet */
-}
-
 
 
 
