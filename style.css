@@ -659,7 +659,7 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 
 .quoteBox {
   width: 48%;
-  height: 250;
+  height: 250px;
   display: flex;
 	padding: 10px;
   align-items: center;
@@ -677,13 +677,13 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 .left-box .top-left {
   top: 0;
   left: 0;
-  transform: translate(-19%, -19%);
+  transform: translate(-21%, -19%);
 }
 
 .left-box .bottom-right {
   bottom: 0;
   right: 0;
-  transform: translate(15%, 15%);
+  transform: translate(10%, 25%);
 }
 
 
@@ -694,6 +694,7 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   text-align: left;
   padding-left: 10px;
 }
+
 
 
 
