@@ -660,8 +660,8 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 /* Gemeinsame Eigenschaften der Boxen */
 .quoteBox {
 
-  width: 150px;
-  height: 100px;
+  width: 48%px;
+  height: auto;
   background: #eee;
   display: flex;
 	  padding: 10px;
@@ -697,6 +697,7 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   text-align: left; /* Text linksbündig */
   padding-left: 10px; /* optional: Abstand vom Rand */
 }
+
 
 
 
