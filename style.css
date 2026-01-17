@@ -649,13 +649,13 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 	height: 600px;
   display: flex;
   flex-direction: column;
-  
+  position: relative;
 }
 
 .row {
 align-items: center;
   display: flex;
- 
+ margin-bottom: 10px;
 }
 
 
@@ -695,6 +695,7 @@ align-items: center;
   margin-top: 10px;
   /*  align-self: flex-start; links ausgerichtet */
 }
+
 
 
 
