@@ -362,7 +362,6 @@ text-shadow: 1px 1px 4px rgba(0,0,0,1), -1px -1px 3px rgba(0,0,0,1), 5px 5px 5px
     padding: 10px;
     font-size: 12px;
     text-align: center;
-    border-top: 1px solid #999;
 }
 
 #largefooter {
@@ -371,7 +370,6 @@ text-shadow: 1px 1px 4px rgba(0,0,0,1), -1px -1px 3px rgba(0,0,0,1), 5px 5px 5px
     padding: 10px;
     font-size: 12px;
     text-align: center;
-    border-top: 1px solid #999;
 }
 
 #svgelement {
@@ -695,6 +693,7 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   text-align: left;
   padding-left: 10px;
 }
+
 
 
 
