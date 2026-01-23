@@ -451,7 +451,7 @@ path {
     top: 50%;
     width: 2px;
     height: 20px;
-    background:#D6C8AE;
+    background:#5E574E;
     transform: translateY(-50%);
 
 }
@@ -695,6 +695,7 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   text-align: left;
   padding-left: 10px;
 }
+
 
 
 
