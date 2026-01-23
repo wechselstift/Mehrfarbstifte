@@ -7,6 +7,7 @@ body {
     margin: 0;
     padding: 0;
     background: #AD9161; 
+	font-color: #49443B;
     font-family: Georgia, "Times New Roman", serif;;
 }
 
@@ -694,6 +695,7 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   text-align: left;
   padding-left: 10px;
 }
+
 
 
 
