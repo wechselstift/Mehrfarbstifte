@@ -283,7 +283,7 @@ text-shadow: 1px 1px 4px rgba(0,0,0,1), -1px -1px 3px rgba(0,0,0,1), 5px 5px 5px
     max-width: 600px;        
     margin: 30px auto;      
     padding: 10px;           
-    border: 8px double #999; 
+    border: 8px double #5E574E; 
     text-align: center;      
     background-color: #f3dfc1; 
     box-sizing: border-box;  
@@ -695,6 +695,7 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   text-align: left;
   padding-left: 10px;
 }
+
 
 
 
