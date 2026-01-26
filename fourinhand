@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Mehrfarbstifte</title>
+    <link rel="stylesheet" href="style.css">
+	<script src="hoverzoom.js"></script>
+	<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+	<link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+</head>
+
+<body>
+
+<div id="container">
+	<div id="banner-wrapper">
+		<div id="banner-title">
+        Historische Mehrfarbstifte <br>  <span class="subtitle">Technisches und Geschichtliches.</span>
+		</div>
+		<img src="images/banner.png" alt="Banner">
+	</div>
+<div id="navbar"></div>
+    <div id="main">
+		<div class="frame largest"></div>
+		<div class="frame middle"></div>
+		<div class="frame smallest"></div>
+        <div id="content">
+            <h2>Four in Hand Vierfarbstift</h2>
+            <h3>Four in Hand four colour pencil</h3>
+      Der bekannteste alte Vierfarbstift ist der Four-in-Hand. <br>
+      Geschuldet ist das seiner weiten Verbreitung, wodurch man ihn für wenig Geld auf Verkaufsplattformen gebraucht kaufen kann. <br>
+      Er hat ein sehr schönes, schon antikes Aussehen. Ein schöner Stift, den es sich zu kaufen lohnt. <br>
+      Doch über seine Hintergründe hat noch niemand geschrieben. Das möchte ich ändern. <br> <br>
+
+      Vom Four-in-Hand gibt es 2 Versionen. <br> <br>
+
+      Version 1: <br>
+      [Bild wird zukünftig eingefügt]
+<br> <br>
+      Version 2: <br>
+      [Bild wird zukünftig eingefügt]
+    <br> <br>
+      Version 2 ist verbreiteter als Version 2. 
+
+    <h3>Aufbau</h3>
+    Zwei Stifthälften stecken teleskopisch ineinander. Die Hälfte mit der Schreiböffnung ist die innere.<br>
+
+     <h3>Bedienung</h3>
+      Beide Stifte funktionieren grundsätzlich gleich:<br>
+      Die beiden Stifthälften werden auseinandergezogen, so weit es geht. Das kann bei alten Stiften einiges an Kraft erfordern, wenn sie lange nicht benutzt wurden. <br>
+      Es sollte ein Farbindikator auf der vorderen Hülse zu sehen sein. Achtung: Es existiert eine 2-Farben-Version desselben Mechanismus, welche keine Indikatoren besitzt. <br>
+      Die Stifthülsen werden verdreht, bis eine Delle oder Erhebung auf der äußeren Hälfte mit einem der Farbpunkte auf der inneren Hülse fluchtet. <br>
+      Nun werden die Hülsen zusammengeschoben. Dadurch wird die Mine vorgeschoben. <br>
+      Der Vorschub ist stufenlos. Ist die Mine abgeschrieben, werden die Hälften ein beliebig großes weiteres Stück zusammengeschoben. <br> <br>
+      
+
+
+        </div>
+        <div id="bilder"> 
+			<div class="sideimage">
+				<img src="images/" alt="Hirth" style="border:none">
+				<div class="caption"></div>
+			</div>
+			<div class="sideimage">
+				<img src="images/" alt="">
+				<div class="caption"></div>
+			</div>
+		</div>
+        <div class="clear"></div>
+    </div>
+
+   
+    <div id="footer">
+		<div id="fragebox">
+			<div id="frage"> <i> Wollen Sie sich über Mehrfarbstifte austauschen?</i><br></div>
+			<p style="font-size:16px">Nehmen Sie mit mir jederzeit Kontakt auf! <br>
+			<p style="font-size:19px; letter-spacing: 1px">
+				<span class="inline-icon"><img src="images/hand.jpg" alt="→"></span>
+				<b><i><a style="color:black" class="mail" href="mailto:wechselstift@gmail.com">wechselstift@gmail.com</a></i></b>
+				<span class="inline-icon"><img src="images/hand.jpg" style="transform: scale(-1, 1)" alt="→"></span> </p  style="font-size:11px">
+			</p>
+			<p style="line-height: 1.2; font-size:11px; letter-spacing: 1px">
+				Möchten Sie verkaufen? Ich kaufe alles: Stifte, Werbung, Dokumente.<br>Sie erhalten ein faires Angebot.
+			</p style="font-size:11px">
+		</div>
+        © 2025 Mehrfarbstifte
+    </div>
+
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
