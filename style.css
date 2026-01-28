@@ -701,6 +701,7 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 .text-image-table td {
   vertical-align: middle;
   padding: 10px;
+  width:50%;
 }
 
 .text-image-table .text {
@@ -712,10 +713,11 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 .text-image-table img {
-  max-width: 100%;
-  height: auto;
+	text-align:center;
+  height: 200px;
   display: block;
 }
+
 
 
 
