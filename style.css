@@ -713,10 +713,11 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 .text-image-table img {
-	text-align:center;
+  text-align:center;
   height: 200px;
-  display: block;
+   display: inline-block; 
 }
+
 
 
 
