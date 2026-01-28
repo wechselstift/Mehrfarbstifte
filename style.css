@@ -81,7 +81,7 @@ main::after {
 	height: 100%;
     float: left;
 	padding-left: 10px;
-	padding-right:10px;
+
 }
 
 div.a {
@@ -719,6 +719,7 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   height: 200px;
    display: inline-block; 
 }
+
 
 
 
