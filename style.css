@@ -690,12 +690,13 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   font-size: 13px;
   text-align: left;
   padding-left: 10px;
-	padding-right:10px;
+	
 }
 
 
 .text-image-table {
   width: 100%;
+	padding-right: 10px;
   border-collapse: collapse;
 }
 
@@ -718,6 +719,7 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   height: 200px;
    display: inline-block; 
 }
+
 
 
 
