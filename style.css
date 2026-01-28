@@ -693,6 +693,29 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 
+.text-image-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.text-image-table td {
+  vertical-align: middle;
+  padding: 10px;
+}
+
+.text-image-table .text {
+  text-align: left;
+}
+
+.text-image-table .image {
+  text-align: right;
+}
+
+.text-image-table img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 
 
 
