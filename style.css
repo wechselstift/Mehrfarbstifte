@@ -654,26 +654,15 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 .quoteBox {
-  width: 48%;
-  display: flex;
-  padding: 10px;
-  align-items: stretch; /* entscheidend */
+	width: 48%; 
+	height: 250px; 
+	display: flex; 
+	padding: 10px; 
+	align-items: center; 
+	justify-content: center; 
+	position:relative
 }
 
-.left-box {
-  display: block; /* Text soll normal im Flow bleiben */
-}
-
-.right-box {
-  display: flex;
-  align-items: center;
-}
-
-/* WICHTIG */
-.right-box img {
-  max-height: 100%;
-  width: auto;
-}
 
 .left-box .quote {
   position: absolute;
@@ -730,6 +719,7 @@ margin-top:-15px;
   height: 200px;
    display: inline-block; 
 }
+
 
 
 
