@@ -656,12 +656,20 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 
 .quoteBox {
   width: 48%;
-  height: 300px;
+  height: auto;
   display: flex;
 	padding: 10px;
   align-items: center;
   justify-content: center;
 	position:relative
+}
+
+.left-box {
+	height: auto;
+}
+
+.right.box {
+	height: 100%;
 }
 
 .left-box .quote {
@@ -719,6 +727,7 @@ margin-top:-15px;
   height: 200px;
    display: inline-block; 
 }
+
 
 
 
