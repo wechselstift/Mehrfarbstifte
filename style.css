@@ -664,12 +664,19 @@ transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 .left-box {
-	height: auto;
+	display: flex;
 }
 
 .right.box {
-	height: 100%;
+	display: flex;
 }
+
+.right-box img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+}
+
 
 .left-box .quote {
   position: absolute;
@@ -726,6 +733,7 @@ margin-top:-15px;
   height: 200px;
    display: inline-block; 
 }
+
 
 
 
