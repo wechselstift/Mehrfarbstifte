@@ -93,7 +93,10 @@ main::after {
 
 }
 
-.nav-left,
+.nav-left a {
+	text-align: center;
+}
+	
 .nav-right a {
     text-align: center;
 }
@@ -751,6 +754,7 @@ margin-top:-15px;
   height: 200px;
    display: inline-block; 
 }
+
 
 
 
