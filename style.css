@@ -77,6 +77,18 @@ main::after {
 	margin-top:5px;
 }
 
+
+.navitemLarge {
+	padding-right: 15px;
+	border: 1px black solid;
+	font-size: 16px;
+	margin-top:5px;
+	
+    display: flex;
+    align-items: center;      /* vertikal */
+    justify-content: center;  /* horizontal */
+}
+
 .nav-left,
 .nav-right {
     width: 50px;
@@ -738,6 +750,7 @@ margin-top:-15px;
   height: 200px;
    display: inline-block; 
 }
+
 
 
 
