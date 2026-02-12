@@ -88,10 +88,14 @@ main::after {
     display: flex;
     align-items: center;     
     justify-content: center; 
-	align:center;
 	border: 1px black solid;
 	font-size: 18px;
 
+}
+
+.nav-left,
+.nav-right a {
+    text-align: center;
 }
 
 .nav-center {
@@ -747,6 +751,7 @@ margin-top:-15px;
   height: 200px;
    display: inline-block; 
 }
+
 
 
 
