@@ -72,6 +72,8 @@ main::after {
 	font-size: 16px;
 	margin-top:5px;
 	margin-left: 10px;
+	margin-right: 10px;
+	background-color:#E6E6E6;
 }
 
 .navitem a {
@@ -763,6 +765,7 @@ margin-top:-15px;
   height: 200px;
    display: inline-block; 
 }
+
 
 
 
