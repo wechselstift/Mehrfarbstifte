@@ -42,7 +42,7 @@ main::after {
 #navigation {
     background: #eeeeee;
     padding: 8px;
-	height: 25px;
+	height: 50px;
     border-bottom: 1px solid #999;
     padding-left: 20px;
 }
@@ -719,6 +719,7 @@ margin-top:-15px;
   height: 200px;
    display: inline-block; 
 }
+
 
 
 
