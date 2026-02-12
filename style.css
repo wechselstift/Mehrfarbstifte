@@ -75,6 +75,22 @@ main::after {
 	margin-top:5px;
 }
 
+.nav-left,
+.nav-right {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+    background: #ccc; /* nur zur Sichtbarkeit */
+}
+
+.nav-center {
+    flex: 1;                 /* nimmt den restlichen Platz ein */
+    display: flex;
+    flex-wrap: wrap;         /* umbrechen erlaubt */
+    align-items: center;
+    margin: 0 10px;
+}
+
 
 
 #content {
@@ -720,6 +736,7 @@ margin-top:-15px;
   height: 200px;
    display: inline-block; 
 }
+
 
 
 
