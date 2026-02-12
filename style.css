@@ -49,8 +49,6 @@ main::after {
 }
 
 #navigation a {
-    margin-right: 7px;
-	margin-left: 7px;
     text-decoration: none;
     color: #003366;
     font-weight: bold;
@@ -764,6 +762,7 @@ margin-top:-15px;
   height: 200px;
    display: inline-block; 
 }
+
 
 
 
