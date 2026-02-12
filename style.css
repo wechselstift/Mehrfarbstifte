@@ -45,6 +45,8 @@ main::after {
 	height: 50px;
     border-bottom: 1px solid #999;
     padding-left: 20px;
+	    display: flex;
+    align-items: center;
 }
 
 #navigation a {
@@ -736,6 +738,7 @@ margin-top:-15px;
   height: 200px;
    display: inline-block; 
 }
+
 
 
 
