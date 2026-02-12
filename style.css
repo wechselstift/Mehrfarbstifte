@@ -72,6 +72,7 @@ main::after {
 	padding-right: 15px;
 	border-right: 1px black solid;
 	font-size: 16px;
+	margin-top:5px;
 }
 
 
@@ -719,6 +720,7 @@ margin-top:-15px;
   height: 200px;
    display: inline-block; 
 }
+
 
 
 
