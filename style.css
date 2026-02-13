@@ -60,9 +60,10 @@ main::after {
     text-decoration: underline;
 }
 
-/* Hauptbereich */
+
 #main {
-	position: relative;
+	    display: flex;
+    flex-wrap: wrap; 
     padding: 30px;
 
 }
@@ -126,6 +127,7 @@ background-color:#E6E6E6;
     width: 69%;
 	height: 100%;
     float: left;
+
 	padding-left: 10px;
 
 }
@@ -766,6 +768,7 @@ margin-top:-15px;
   height: 200px;
    display: inline-block; 
 }
+
 
 
 
