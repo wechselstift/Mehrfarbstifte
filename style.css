@@ -152,6 +152,7 @@ ul li::before {
     content: "";
     position: absolute;
     left: 0;      
+	  top: 50%;
     width: 30px;
     height: 10px;
 	transform: translateY(-50%);
@@ -765,6 +766,7 @@ margin-top:-15px;
   height: 200px;
    display: inline-block; 
 }
+
 
 
 
