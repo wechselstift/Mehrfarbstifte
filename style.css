@@ -589,19 +589,19 @@ path {
 
 .frame.largest {
     width: 99%;
-    height: 99.5%;
+    height: 99.9%;
     border: 1px solid #5E574E; 
 }
 
 .frame.middle {
     width: 98%;
-    height: 99%;
+    height: 99.8%;
     border: 5px solid #5E574E;
 }
 
 .frame.smallest {
     width: 96%;
-    height: 98.5%;
+    height: 98.7%;
     border: 1px solid #5E574E; 
 }
 
@@ -769,6 +769,7 @@ margin-top:-15px;
   height: 200px;
    display: inline-block; 
 }
+
 
 
 
