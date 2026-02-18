@@ -63,7 +63,7 @@ main::after {
   transform: translateY(-50%);
   background: transparent;
   border: none;
-  color: #fff;
+  color: white;
   font-size: 20px;
   cursor: pointer;
 }
@@ -800,6 +800,7 @@ margin-top:-15px;
   height: 200px;
    display: inline-block; 
 }
+
 
 
 
