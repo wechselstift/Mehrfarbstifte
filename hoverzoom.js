@@ -1,3 +1,18 @@
+var time;
+
+window.onload = function(){
+    time = setTimeout(function(){
+        document.location.reload(); 
+    }, 5000);
+};
+
+document.onreadystatechange = function() {
+    if (document.readyState == "complete") {
+        clearTimeout(time);
+    }
+}
+
+
 document.addEventListener("DOMContentLoaded", function () {
 
     var images = document.querySelectorAll(".sideimage, .sideimage-long");
@@ -17,6 +32,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
     });
+
+
     
 fetch("navbar.html")
   .then(res => res.text())
@@ -40,6 +57,7 @@ fetch("footer.html")
   });
     
 });
+
 
 
 
