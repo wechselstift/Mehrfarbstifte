@@ -57,6 +57,7 @@ fetch("footer.html")
     
 });
 
+}
 
 
 
