@@ -15,9 +15,9 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
     
-    var images = document.querySelectorAll(".sideimage, .sideimage-long");
+    var sideimages = document.querySelectorAll(".sideimage, .sideimage-long");
     
-    images.forEach(function (img) {
+    sideimages.forEach(function (img) {
 
         img.addEventListener("mouseenter", function () {
             this.style.transform = "scale(1.8)";
@@ -56,6 +56,7 @@ fetch("footer.html")
     if (foot) foot.innerHTML = data;
   });
     
+
 
 
 
