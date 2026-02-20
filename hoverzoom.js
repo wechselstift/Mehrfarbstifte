@@ -2,17 +2,18 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
-      const images = document.querySelectorAll("img");
-      let reloadTriggered = false;
+     if (sessionStorage.getItem("imgReloaded")) return;
 
-      images.forEach(img => {
-        img.addEventListener("error", () => {
-      if (!reloadTriggered) {
-        reloadTriggered = true;
-        console.warn("Bild konnte nicht geladen werden – Seite wird neu geladen");
-        location.reload();
-      }
+  const images = document.querySelectorAll("img");
+
+  images.forEach(img => {
+    img.addEventListener("error", () => {
+      sessionStorage.setItem("imgReloaded", "true");
+      console.warn("Bildfehler – Seite wird einmal neu geladen");
+      location.reload();
     });
+  });
+
     
     var images = document.querySelectorAll(".sideimage, .sideimage-long");
     
@@ -30,9 +31,9 @@ document.addEventListener("DOMContentLoaded", function () {
             this.style.zIndex = "auto";
         });
 
-    });
-
-
+          });
+      
+});
     
 fetch("navbar.html")
   .then(res => res.text())
@@ -55,9 +56,10 @@ fetch("footer.html")
     if (foot) foot.innerHTML = data;
   });
     
-});
 
-}
+
+
+
 
 
 
