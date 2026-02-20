@@ -2,8 +2,20 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    var images = document.querySelectorAll(".sideimage, .sideimage-long");
+      const images = document.querySelectorAll("img");
+      let reloadTriggered = false;
 
+      images.forEach(img => {
+        img.addEventListener("error", () => {
+      if (!reloadTriggered) {
+        reloadTriggered = true;
+        console.warn("Bild konnte nicht geladen werden – Seite wird neu geladen");
+        location.reload();
+      }
+    });
+    
+    var images = document.querySelectorAll(".sideimage, .sideimage-long");
+    
     images.forEach(function (img) {
 
         img.addEventListener("mouseenter", function () {
@@ -44,6 +56,7 @@ fetch("footer.html")
   });
     
 });
+
 
 
 
