@@ -1,14 +1,4 @@
-var time;
-window.onload = function() {
-    time = setTimeout(function() {
-        if (document.readyState === 'complete') {
-            clearTimeout(time);
-        } else {
-            document.location.reload();
-        }
 
-    }, 5000);
-};
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -54,6 +44,7 @@ fetch("footer.html")
   });
     
 });
+
 
 
 
