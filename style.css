@@ -405,8 +405,10 @@ text-shadow: 1px 1px 4px rgba(0,0,0,1), -1px -1px 3px rgba(0,0,0,1), 5px 5px 5px
     margin: 30px auto;      
     padding: 30px;        
 	    text-align: center;   
-  border: 8px solid #D6C8AE; 
-   
+
+     border: 10px solid #D6C8AE;
+        box-shadow: inset 0px 0px 0px 10px red;
+        box-sizing: border-box; 
     background-color: #f3dfc1;
 	
     box-sizing: border-box;  
@@ -839,6 +841,7 @@ margin-top:-15px;
   height: 200px;
    display: inline-block; 
 }
+
 
 
 
