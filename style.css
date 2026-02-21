@@ -50,7 +50,7 @@ text-align: left;
 }
 
 
-#rechts a:hover {
+.sidemenu a:hover {
     text-decoration: underline;
 }
 
@@ -843,6 +843,7 @@ margin-top:-15px;
   height: 200px;
    display: inline-block; 
 }
+
 
 
 
