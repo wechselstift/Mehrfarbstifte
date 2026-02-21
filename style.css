@@ -21,8 +21,9 @@ table, th, td {
 
 #links{
   grid-column: 1;
-  width:200p;
+  width:200px;
 	color:red;
+	align:right;
 
 }
 
@@ -812,6 +813,7 @@ margin-top:-15px;
   height: 200px;
    display: inline-block; 
 }
+
 
 
 
