@@ -35,10 +35,14 @@ text-align: left;
   border-bottom: 2px dotted #303a40; 
   padding-left: 7px;
 	padding-bottom: 5px;
-	text-decoration: none;
+	
 	color:black;
 	width:70%;
 
+}
+
+.sidemenu a {
+text-decoration: none;
 }
 
 #rechts{
@@ -843,6 +847,7 @@ margin-top:-15px;
   height: 200px;
    display: inline-block; 
 }
+
 
 
 
