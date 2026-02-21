@@ -401,6 +401,20 @@ text-shadow: 1px 1px 4px rgba(0,0,0,1), -1px -1px 3px rgba(0,0,0,1), 5px 5px 5px
   margin: 30px auto;
   padding: 30px;
   text-align: center;
+  background-color: #F7E7C7;
+  background: url(images/rahmen1.png) center / contain no-repeat;
+	background-size: 100% 100%; background-repeat: no-repeat; background-position: center;
+  position: relative;
+  box-sizing: border-box;
+}
+
+
+#frageboxIndex {
+  width: 80%;
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 30px;
+  text-align: center;
   background-color: #f3dfc1;
   background: url(images/rahmen6.png) center / contain no-repeat;
 	background-size: 100% 100%; background-repeat: no-repeat; background-position: center;
@@ -833,6 +847,7 @@ margin-top:-15px;
   height: 200px;
    display: inline-block; 
 }
+
 
 
 
