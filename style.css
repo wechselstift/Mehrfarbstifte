@@ -34,8 +34,8 @@ table, th, td {
 text-align: left;            
   border-bottom: 2px dotted #303a40; 
   padding-left: 7px;
-	padding-bottom: 5px;
-	
+	padding-bottom: 2px;
+	padding-top:5px;
 	color:black;
 	width:70%;
 
@@ -847,6 +847,7 @@ margin-top:-15px;
   height: 200px;
    display: inline-block; 
 }
+
 
 
 
