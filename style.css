@@ -23,7 +23,7 @@ table, th, td {
 
 #links{
   grid-column: 1;
-  width:200px;
+  width:300px;
  background-color: #D6C8AE;
 justify-self: end;
 	border-right: 30px solid #968A72;
@@ -32,7 +32,7 @@ justify-self: end;
 
 #rechts{
   grid-column: 3;
-  width:200px;
+  width:300px;
  background-color: #D6C8AE;
 	border-left: 30px solid #968A72;
 
@@ -827,6 +827,7 @@ margin-top:-15px;
   height: 200px;
    display: inline-block; 
 }
+
 
 
 
