@@ -8,14 +8,26 @@ body {
     padding: 0;
     background: #968A72; 
 	font-color: #49443B;
-    font-family: Georgia, "Times New Roman", serif;;
+    font-family: Georgia, "Times New Roman", serif;
+	
+	  display: grid;
+	  grid-template-columns: 1fr 1000px 1fr;
+	  min-height: 100vh;
 }
 
 table, th, td {
   border:1px solid black;
 }
 
+#links{
+  grid-column: 1;
+  width:200p;
+	color:red;
+
+}
+
 #container {
+	  grid-column: 2;
     width: 1000px;
 	line-height: 1.4;
     margin: 0 auto;
@@ -800,6 +812,7 @@ margin-top:-15px;
   height: 200px;
    display: inline-block; 
 }
+
 
 
 
