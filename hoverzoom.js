@@ -55,7 +55,16 @@ fetch("footer.html")
     const foot = document.getElementById("mobiledisclaimer");
     if (foot) foot.innerHTML = data;
   });
+
+
+fetch("rechts.html")
+  .then(res => res.text())
+  .then(data => {
+    const foot = document.getElementById("rechts");
+    if (foot) foot.innerHTML = data;
+  });
     
+
 
 
 
