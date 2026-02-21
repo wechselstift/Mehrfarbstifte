@@ -111,10 +111,9 @@ main::after {
 
 
 #navigation {
-    background: #eeeeee;
+    background: #374045;
     padding: 8px;
-	height: 10px;
-    border-bottom: 1px solid #999;
+	height:3;
     display: flex;
     align-items: center;
 }
@@ -841,6 +840,7 @@ margin-top:-15px;
   height: 200px;
    display: inline-block; 
 }
+
 
 
 
