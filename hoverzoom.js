@@ -44,6 +44,14 @@ fetch("footer.html")
     if (foot) foot.innerHTML = data;
   });
 
+
+fetch("banner.html")
+  .then(res => res.text())
+  .then(data => {
+    const foot = document.getElementById("banner-wrapper");
+    if (foot) foot.innerHTML = data;
+  });
+
     fetch("mobiledisclaimer.html")
   .then(res => res.text())
   .then(data => {
@@ -59,6 +67,7 @@ fetch("rechts.html")
     if (foot) foot.innerHTML = data;
   });
     
+
 
 
 
