@@ -379,7 +379,7 @@ text-shadow: 1px 1px 4px rgba(0,0,0,1), -1px -1px 3px rgba(0,0,0,1), 5px 5px 5px
 }
 
 #fragebox {
-	background-image: url(images/rahmen1.png);
+	background-image: url(images/rahmen2.png);
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -822,6 +822,7 @@ margin-top:-15px;
   height: 200px;
    display: inline-block; 
 }
+
 
 
 
