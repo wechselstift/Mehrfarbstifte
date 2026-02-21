@@ -30,6 +30,13 @@ justify-self: end;
 
 }
 
+.sidemenu {
+text-align: left;            
+  border-bottom: 1px dotted #000; 
+  padding: 4px 8px;
+
+}
+
 #rechts{
   grid-column: 3;
   width:300px;
@@ -827,6 +834,7 @@ margin-top:-15px;
   height: 200px;
    display: inline-block; 
 }
+
 
 
 
