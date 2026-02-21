@@ -421,8 +421,8 @@ text-shadow: 1px 1px 4px rgba(0,0,0,1), -1px -1px 3px rgba(0,0,0,1), 5px 5px 5px
 #fragebox::after {
   content: "";
   position: absolute;
-  inset: 0;
-	  background-size: 100% 100%;
+  inset: 0;  
+	background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   	background-image: url(images/rahmen6.png);
@@ -858,6 +858,7 @@ margin-top:-15px;
   height: 200px;
    display: inline-block; 
 }
+
 
 
 
