@@ -46,10 +46,7 @@ justify-self: end;
     background: #D6C8AE;
    font-family: Georgia, "Times New Roman", serif;
 	
-	background-image: url(images/rahmen3.png);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: center;
+
 
 }
 main::after {
@@ -830,6 +827,7 @@ margin-top:-15px;
   height: 200px;
    display: inline-block; 
 }
+
 
 
 
