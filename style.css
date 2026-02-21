@@ -407,9 +407,6 @@ text-shadow: 1px 1px 4px rgba(0,0,0,1), -1px -1px 3px rgba(0,0,0,1), 5px 5px 5px
 	    text-align: center;   
 
         background-color: #f3dfc1;
-   
-
-	z-index: 100;
 	position: relative;
 }
 
@@ -429,6 +426,11 @@ text-shadow: 1px 1px 4px rgba(0,0,0,1), -1px -1px 3px rgba(0,0,0,1), 5px 5px 5px
   inset: 0;
   	background-image: url(images/rahmen6.png);
   z-index: 2;
+}
+
+.fragebox > * {
+  position: relative;
+  z-index: 3;
 }
 
 
@@ -855,6 +857,7 @@ margin-top:-15px;
   height: 200px;
    display: inline-block; 
 }
+
 
 
 
