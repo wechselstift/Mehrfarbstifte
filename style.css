@@ -32,8 +32,9 @@ justify-self: end;
 
 .sidemenu {
 text-align: left;            
-  border-bottom: 3px dotted #000; 
+  border-bottom: 2px dotted #303a40; 
   padding: 4px 8px;
+	width:70%;
 
 }
 
@@ -834,6 +835,7 @@ margin-top:-15px;
   height: 200px;
    display: inline-block; 
 }
+
 
 
 
