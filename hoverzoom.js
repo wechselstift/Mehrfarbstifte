@@ -35,12 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
       
 });
     
-fetch("navbar.html")
-  .then(res => res.text())
-  .then(data => {
-    const nav = document.getElementById("navbar");
-    if (nav) nav.innerHTML = data;
-  });
+
 
 fetch("footer.html")
   .then(res => res.text())
@@ -64,6 +59,7 @@ fetch("rechts.html")
     if (foot) foot.innerHTML = data;
   });
     
+
 
 
 
