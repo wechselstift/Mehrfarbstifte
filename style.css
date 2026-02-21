@@ -379,6 +379,8 @@ text-shadow: 1px 1px 4px rgba(0,0,0,1), -1px -1px 3px rgba(0,0,0,1), 5px 5px 5px
 }
 
 #fragebox {
+	background-image:url("images/rahmen1.png") fixed center;
+	
    width: 80%;              
     max-width: 600px;        
     margin: 30px auto;      
@@ -390,6 +392,8 @@ text-shadow: 1px 1px 4px rgba(0,0,0,1), -1px -1px 3px rgba(0,0,0,1), 5px 5px 5px
 	z-index: 100;
 	position: relative;
 }
+
+#fragebox .img
 
 #frage {
     font-size: 24px; /* sehr groß */
@@ -814,6 +818,7 @@ margin-top:-15px;
   height: 200px;
    display: inline-block; 
 }
+
 
 
 
