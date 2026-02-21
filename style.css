@@ -630,31 +630,24 @@ path {
 
 
 .frame {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    box-sizing: border-box; 
-	pointer-eventS:none;
+  position: absolute;
+  pointer-events: none;
+  box-sizing: border-box;
 }
 
-
 .frame.largest {
-    width: 99%;
-    height: 99.9%;
-    border: 1px solid #5E574E; 
+  inset: 0px;
+  border: 1px solid #5E574E;
 }
 
 .frame.middle {
-    width: 98%;
-    height: 99.8%;
-    border: 5px solid #5E574E;
+  inset: 6px;
+  border: 5px solid #5E574E;
 }
 
 .frame.smallest {
-    width: 96%;
-    height: 98.7%;
-    border: 1px solid #5E574E; 
+  inset: 16px;
+  border: 1px solid #5E574E;
 }
 
 
@@ -821,6 +814,7 @@ margin-top:-15px;
   height: 200px;
    display: inline-block; 
 }
+
 
 
 
