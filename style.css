@@ -407,16 +407,29 @@ text-shadow: 1px 1px 4px rgba(0,0,0,1), -1px -1px 3px rgba(0,0,0,1), 5px 5px 5px
 	    text-align: center;   
 
         background-color: #f3dfc1;
-        box-shadow: inset 0px 0px 0px 15px #D6C8AE;
-        box-sizing: border-box; 
-		background-image: url(images/rahmen6.png);
+   
 
-	
-    box-sizing: border-box;  
 	z-index: 100;
 	position: relative;
 }
 
+.fragebox::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0px 0px 0px 15px #D6C8AE;
+	    
+        box-sizing: border-box; 
+  z-index: 1;
+}
+
+.fragebox::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  	background-image: url(images/rahmen6.png);
+  z-index: 2;
+}
 
 
 #frage {
@@ -842,6 +855,7 @@ margin-top:-15px;
   height: 200px;
    display: inline-block; 
 }
+
 
 
 
