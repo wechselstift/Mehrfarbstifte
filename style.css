@@ -43,7 +43,7 @@ grid-column: 3;
 	margin-top:200px;
 width:300px;
 background-color: #D6C8AE;
-border-left: 20px solid #877d68;
+border-left: 10px solid #877d68;
 
 }
 
@@ -112,8 +112,7 @@ main::after {
 
 #navigation {
     background: #374045;
-    padding: 8px;
-	height:3px;
+	height:2px;
     display: flex;
     align-items: center;
 }
@@ -840,6 +839,7 @@ margin-top:-15px;
   height: 200px;
    display: inline-block; 
 }
+
 
 
 
