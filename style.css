@@ -7,12 +7,18 @@ body {
     margin: 0;
     padding: 0;
     background:  #877d68;
+	
 	font-color: #49443B;
     font-family: Georgia, "Times New Roman", serif;
 	
 	  display: grid;
 	  grid-template-columns: 1fr 1000px 1fr;
 	  min-height: 100vh;
+
+	background-image: url(images/rahmen3.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 table, th, td {
@@ -822,6 +828,7 @@ margin-top:-15px;
   height: 200px;
    display: inline-block; 
 }
+
 
 
 
