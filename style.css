@@ -450,7 +450,7 @@ text-shadow: 1px 1px 4px rgba(0,0,0,1), -1px -1px 3px rgba(0,0,0,1), 5px 5px 5px
 	position: absolute;
 	right: 0px;
 	top: 0px;
-    transform: rotate(10deg) scale(0.33) translate(150px, -1150px);   
+    transform: rotate(10deg) scale(0.33) translate(110px, -1100px);   
     z-index: 10;
 	
 }
@@ -833,6 +833,7 @@ margin-top:-15px;
   height: 200px;
    display: inline-block; 
 }
+
 
 
 
