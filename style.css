@@ -827,7 +827,7 @@ margin-top:-20px;
 
 
 .text-image-table {
-  width: 98%;
+  width: 80%;
   border-collapse: collapse;
 }
 
@@ -847,9 +847,10 @@ margin-top:-20px;
 
 .text-image-table img {
   text-align:center;
-  height: 200px;
+  height: 150px;
    display: inline-block; 
 }
+
 
 
 
