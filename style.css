@@ -21,7 +21,10 @@ table, th, td {
   border:1px solid black;
 }
 
-
+#navi a.active {
+	font-weight: bold;
+	color: red;
+}
 
 .sidemenu {
 text-align: left;            
@@ -850,6 +853,7 @@ margin-top:-20px;
   height: 150px;
    display: inline-block; 
 }
+
 
 
 
