@@ -32,7 +32,21 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
           });
-      
+
+     fetch("rechts.html")
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById("navbar").innerHTML = html;
+
+    const currentPage = location.pathname.split("/").pop();
+
+    document.querySelectorAll("nav a").forEach(link => {
+      if (link.getAttribute("href") === currentPage) {
+        link.classList.add("active");
+      }
+    });
+  });
+     
 });
     
 
@@ -67,6 +81,7 @@ fetch("rechts.html")
     if (foot) foot.innerHTML = data;
   });
     
+
 
 
 
