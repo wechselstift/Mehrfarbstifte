@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const currentPage = location.pathname.split("/").pop();
 
-    document.querySelectorAll("navi a").forEach(link => {
+    document.querySelectorAll("#navi a").forEach(link => {
       if (link.getAttribute("href") === currentPage) {
         link.classList.add("active");
       }
@@ -81,6 +81,7 @@ fetch("rechts.html")
     if (foot) foot.innerHTML = data;
   });
     
+
 
 
 
