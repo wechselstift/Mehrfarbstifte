@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
     });
-  });
+
 
      
 });
@@ -91,6 +91,7 @@ fetch("rechts.html")
     if (foot) foot.innerHTML = data;
   });
     
+
 
 
 
