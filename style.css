@@ -23,8 +23,6 @@ table, th, td {
 
 #navi a.active {
 	font-weight: bold;
-	font-color: red;
-	background-color: green;
 }
 
 .sidemenu {
@@ -854,6 +852,7 @@ margin-top:-20px;
   height: 150px;
    display: inline-block; 
 }
+
 
 
 
