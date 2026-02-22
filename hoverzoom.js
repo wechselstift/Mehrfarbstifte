@@ -38,14 +38,20 @@ document.addEventListener("DOMContentLoaded", function () {
   .then(html => {
     document.getElementById("rechts").innerHTML = html;
 
-    const currentPage = location.pathname.split("/").pop();
+    const currentPage = decodeURIComponent(
+      location.pathname.split("/").pop() || "index.html"
+    );   
+       document.querySelectorAll("#navi a").forEach(link => {
+      const linkPage = decodeURIComponent(
+        link.getAttribute("href").split("/").pop()
+      );
 
-    document.querySelectorAll("#navi a").forEach(link => {
-      if (link.getAttribute("href") === currentPage) {
+      if (linkPage === currentPage) {
         link.classList.add("active");
       }
     });
   });
+
      
 });
     
@@ -81,6 +87,7 @@ fetch("rechts.html")
     if (foot) foot.innerHTML = data;
   });
     
+
 
 
 
