@@ -38,6 +38,7 @@ text-align: left;
 
 .sidemenu a {
 text-decoration: none;
+color:inherit;
 }
 
 #rechts{
@@ -852,6 +853,7 @@ margin-top:-20px;
   height: 150px;
    display: inline-block; 
 }
+
 
 
 
