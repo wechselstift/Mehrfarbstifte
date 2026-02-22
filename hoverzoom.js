@@ -40,15 +40,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const currentPage = decodeURIComponent(
       location.pathname.split("/").pop() || "index.html"
-    );   
-       document.querySelectorAll("#navi a").forEach(link => {
-      const linkPage = decodeURIComponent(
-        link.getAttribute("href").split("/").pop()
-      );
+    );
+
+    document.querySelectorAll("#navi a").forEach(link => {
+      const href = link.getAttribute("href");
+
+      if (!href || href === "#" || href.startsWith("http")) return;
+
+      const linkPage = decodeURIComponent(href.split("/").pop());
 
       if (linkPage === currentPage) {
         link.classList.add("active");
       }
+    });
     });
   });
 
@@ -87,6 +91,7 @@ fetch("rechts.html")
     if (foot) foot.innerHTML = data;
   });
     
+
 
 
 
