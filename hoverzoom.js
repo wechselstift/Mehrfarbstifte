@@ -4,6 +4,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
      if (sessionStorage.getItem("imgReloaded")) return;
 
+     const ups = document.querySelectorAll(".fnup");
+     const downs = document.querySelectorAll(".fndwn");
+
+      ups.forEach((fn, i) => {
+    const n = i + 1;
+
+    // IDs setzen
+    fn.id = `fnref-${n}`;
+    downs[i].id = `fn-${n}`;
+
+    // Text-Fußnote
+    const upLink = fn.querySelector("a");
+    upLink.textContent = n;
+    upLink.href = `#fn-${n}`;
+
+    // Rücksprung
+    const downLink = downs[i].querySelector(".fnback");
+    downLink.href = `#fnref-${n}`;
+  });
+
+     
   const images = document.querySelectorAll("img");
 
   images.forEach(img => {
@@ -91,6 +112,7 @@ fetch("rechts.html")
     if (foot) foot.innerHTML = data;
   });
     
+
 
 
 
