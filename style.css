@@ -21,6 +21,32 @@ table, th, td {
   border:1px solid black;
 }
 
+.languageContainer {
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.languageContainerItem {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.languageContainerImage {
+  width: 20px;
+  height: 15px;
+  border: 1px solid #000;
+  display: inline-block;
+}
+
+.languageContainerItem a {
+  text-decoration: none;
+}
+
+
 #navi a.active {
 	font-weight: bold;
 }
