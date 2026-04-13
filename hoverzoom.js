@@ -97,12 +97,6 @@ fetch("banner.html")
     if (foot) foot.innerHTML = data;
   });
 
-    fetch("mobiledisclaimer.html")
-  .then(res => res.text())
-  .then(data => {
-    const foot = document.getElementById("mobiledisclaimer");
-    if (foot) foot.innerHTML = data;
-  });
 
 
 fetch("rechts.html")
