@@ -470,11 +470,11 @@ ul li::before {
 }
 
 .normabanner {
-	position: absolute;
-	right: 0px;
-	top: 0px;
-    transform: rotate(14deg) scale(0.3) translate(20px, 0px);  
-    z-index: 10;
+position: absolute;
+  right: 0px;
+  top: 0px;
+  transform: rotate(17deg) scale(0.8) translate(25px, -20px);
+  z-index: 10;
 	
 }
 
@@ -515,13 +515,13 @@ ul li::before {
 }
 
 #svgelement {
-	position: absolute;
-    top: 0;
-    left: 0;
-    width: 99.8%;
-    height: 100%;
-    pointer-events: none;
-	margin-top: -10px;
+position: absolute;
+  top: 4px;
+  left: -30px;
+  width: 62%;
+  height: 100%;
+  pointer-events: none;
+  margin-top: -10px;
 }
 
 svg {
