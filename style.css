@@ -478,6 +478,9 @@ position: absolute;
 	
 }
 
+.teee{
+	  transform: scaleX(-1);
+}
 
 #hinweisoverlay {
  position: absolute;
