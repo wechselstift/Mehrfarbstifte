@@ -473,7 +473,7 @@ ul li::before {
 	position: absolute;
 	right: 0px;
 	top: 0px;
-    transform: rotate(10deg) scale(0.1) translate(0px, 0x);   
+    transform: rotate(10deg) scale(0.1) translate(0px, 0px);   
     z-index: 10;
 	
 }
