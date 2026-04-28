@@ -838,14 +838,14 @@ margin-top:-20px;
 
 
 .text-image-table {
-  width: 80%;
+  width: 100%;
   border-collapse: collapse;
 }
 
 .text-image-table td {
   vertical-align: middle;
-  padding: 10px;
-  width:50%;
+  padding: 5px;
+  width:80%;
 }
 
 .text-image-table .text {
@@ -858,7 +858,7 @@ margin-top:-20px;
 
 .text-image-table img {
   text-align:center;
-  height: 150px;
+  height: 110px;
    display: inline-block; 
 }
 
