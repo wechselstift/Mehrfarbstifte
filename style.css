@@ -319,12 +319,12 @@ ul li::before {
 
 
 .sideimage-long {
-    float: right;
-    width: 250px;
+    width: 100%;
     max-width: 30%;
     height: auto;
     text-align: center;
-    margin-left: 1%;
+    margin-right: auto;
+	margin-left:auto;
     margin-bottom: 1%;
     margin-top: 10%;       
     box-sizing: border-box;
