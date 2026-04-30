@@ -871,6 +871,7 @@ margin-top:-20px;
 .carousel {
   width: 100%;
   overflow: hidden;
+  
 }
 
 .trackCarousel {
@@ -879,7 +880,7 @@ margin-top:-20px;
   grid-template-rows: repeat(3, 90px);
 
   grid-auto-columns: 90px;
-
+opacity:0.5;
   gap: 10px;
   
   animation: scroll linear infinite;
@@ -909,6 +910,21 @@ margin-top:-20px;
 
 
 
+#ccc {
+	  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+ 
+}
+
+#ppp {
+	  position: relative;
+  width: 100%;
+  height: auto;
+
+}
 
 
 
