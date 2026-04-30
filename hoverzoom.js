@@ -108,8 +108,7 @@ fetch("rechts.html")
     
 
 
-
-const MAX_IMAGES = 30;   
+const MAX_IMAGES = 57;   
 const VISIBLE = 15;     
 
 const track = document.getElementById("trackCarousel");
@@ -120,7 +119,50 @@ for (let i = 1; i <= MAX_IMAGES; i++) {
   images.push(`images/logos/logo${i}.png`);
 }
 
-// 2. Shuffle (Fisher-Yates)
+// OPTIONAL Shuffle
+ images = shuffle(images);
+
+// 2. Erste 15
+let selected = images.slice(0, VISIBLE);
+
+// 3. Rest
+let rest = images.slice(VISIBLE);
+
+// 4. Rest auf 3er Grid auffüllen
+const ROWS = 3;
+let remainder = rest.length % ROWS;
+
+if (remainder !== 0) {
+  let missing = ROWS - remainder;
+  for (let i = 0; i < missing; i++) {
+    rest.push(null); // leere tiles
+  }
+}
+
+let sequence = [
+  ...selected,
+  ...rest
+];
+
+//  komplette Sequenz duplizieren
+let finalImages = sequence.concat(sequence);
+
+// 6. DOM erzeugen
+finalImages.forEach(src => {
+  const tile = document.createElement("div");
+  tile.className = "tile";
+
+  if (src) {
+    const img = document.createElement("img");
+    img.src = src;
+    tile.appendChild(img);
+  }
+
+  track.appendChild(tile);
+});
+
+
+// Shuffle Funktion
 function shuffle(arr) {
   for (let i = arr.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -129,26 +171,18 @@ function shuffle(arr) {
   return arr;
 }
 
-images = shuffle(images);
+const tileSize = 100;
+const gap = 10;
+const colsVisible = 5;
 
-// 3. 15 auswählen
-let selected = images.slice(0, VISIBLE);
+// wie viele "Spalten" hat der Mittelteil?
+const middleCols = rest.length / ROWS;
 
-// 4. Für Endlos-Loop duplizieren
-let finalImages = selected.concat(selected);
+// Strecke berechnen
+const scrollDistance = (middleCols + colsVisible) * (tileSize + gap);
 
-// 5. DOM erzeugen
-finalImages.forEach(src => {
-  const tile = document.createElement("div");
-  tile.className = "tile";
-
-  const img = document.createElement("img");
-  img.src = src;
-
-  tile.appendChild(img);
-  track.appendChild(tile);
-});
-
+// CSS Variable setzen
+track.style.setProperty('--scroll-distance', `-${scrollDistance}px`);
 
 
 

@@ -869,10 +869,8 @@ margin-top:-20px;
 
 
 .carousel {
-  width: 100%;   /* jetzt flexibel */
-  height: 320px;
+  width: 100%;
   overflow: hidden;
-  position: relative;
 }
 
 .trackCarousel {
@@ -880,21 +878,13 @@ margin-top:-20px;
   grid-auto-flow: column;
   grid-template-rows: repeat(3, 100px);
 
-  /*  dynamischer gap */
-  column-gap: calc((100% - (5 * 100px)) / 4);
-  row-gap: 10px;
+  /* 🔥 WICHTIG: feste Spaltenbreite */
+  grid-auto-columns: 100px;
 
-  animation: scroll 20s linear infinite;
-}
-
-
-.trackCarousel {
-  display: grid;
-  grid-auto-flow: column;
-  grid-template-rows: repeat(3, 100px);
   gap: 10px;
 
-  animation: scroll 20s linear infinite;
+  animation: scroll linear infinite;
+  animation-duration: 20s;
 }
 
 .tile {
@@ -913,10 +903,9 @@ margin-top:-20px;
     transform: translateX(0);
   }
   to {
-    transform: translateX(-50%);
+    transform: translateX(var(--scroll-distance));
   }
 }
-
 
 
 
