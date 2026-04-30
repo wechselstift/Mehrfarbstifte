@@ -866,12 +866,27 @@ margin-top:-20px;
 
 
 
+
+
 .carousel {
-  width: 560px;   /* 5 * 100 + 4 * 10 gap */
-  height: 320px;  /* 3 * 100 + 2 * 10 gap */
-  overflow: hidden; /* ← WICHTIG: verdeckt alles außerhalb */
+  width: 100%;   /* jetzt flexibel */
+  height: 320px;
+  overflow: hidden;
   position: relative;
 }
+
+.trackCarousel {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(3, 100px);
+
+  /*  dynamischer gap */
+  column-gap: calc((100% - (5 * 100px)) / 4);
+  row-gap: 10px;
+
+  animation: scroll 20s linear infinite;
+}
+
 
 .trackCarousel {
   display: grid;
