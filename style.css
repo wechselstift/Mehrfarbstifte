@@ -876,19 +876,19 @@ margin-top:-20px;
 .trackCarousel {
   display: grid;
   grid-auto-flow: column;
-  grid-template-rows: repeat(3, 80px);
+  grid-template-rows: repeat(3, 90px);
 
-  grid-auto-columns: 100px;
+  grid-auto-columns: 90px;
 
-  gap: 1px;
+  gap: 10px;
   
   animation: scroll linear infinite;
   animation-duration: 60s;
 }
 
 .tile {
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
 }
 
 .tile img {

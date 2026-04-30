@@ -171,7 +171,7 @@ function shuffle(arr) {
   return arr;
 }
 
-const tileSize = 80;
+const tileSize = 90;
 const gap = 10;
 const colsVisible = 5;
 
