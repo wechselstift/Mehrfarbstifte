@@ -109,7 +109,45 @@ fetch("rechts.html")
 
 
 
+const MAX_IMAGES = 30;   
+const VISIBLE = 15;     
 
+const track = document.getElementById("trackCarousel");
+
+// 1. Bildliste erzeugen
+let images = [];
+for (let i = 1; i <= MAX_IMAGES; i++) {
+  images.push(`images/logos/logo${i}.png`);
+}
+
+// 2. Shuffle (Fisher-Yates)
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+images = shuffle(images);
+
+// 3. 15 auswählen
+let selected = images.slice(0, VISIBLE);
+
+// 4. Für Endlos-Loop duplizieren
+let finalImages = selected.concat(selected);
+
+// 5. DOM erzeugen
+finalImages.forEach(src => {
+  const tile = document.createElement("div");
+  tile.className = "tile";
+
+  const img = document.createElement("img");
+  img.src = src;
+
+  tile.appendChild(img);
+  track.appendChild(tile);
+});
 
 
 
