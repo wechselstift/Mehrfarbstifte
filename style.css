@@ -878,10 +878,10 @@ margin-top:-20px;
   grid-auto-flow: column;
   grid-template-rows: repeat(3, 100px);
 
-  /* 🔥 WICHTIG: feste Spaltenbreite */
   grid-auto-columns: 100px;
 
   gap: 10px;
+  
 
   animation: scroll linear infinite;
   animation-duration: 20s;
