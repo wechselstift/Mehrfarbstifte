@@ -108,7 +108,7 @@ fetch("rechts.html")
     
 
 
-const MAX_IMAGES = 57;   
+const MAX_IMAGES = 60;   
 const VISIBLE = 15;     
 
 const track = document.getElementById("trackCarousel");
