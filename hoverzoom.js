@@ -117,6 +117,11 @@ const BASE_URL =
 const countEl = document.getElementById("count");
 const btn = document.getElementById("likeBtn");
 
+if (localStorage.getItem("liked") === null) {
+    localStorage.setItem("liked", "false");
+}
+
+
 function updateButton() {
     const liked = localStorage.getItem("liked");
 
