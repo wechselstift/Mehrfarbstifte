@@ -186,6 +186,74 @@ track.style.setProperty('--scroll-distance', `-${scrollDistance}px`);
 
 
 
+// Webseiten-Like
+
+const API_KEY = "ut_lRaNc4TLVF1mAswTVeCgjpT0SuqdI2DvuGCBKotr";
+const BASE_URL =
+"https://api.counterapi.dev/v2/wechselstifts-team-4284/wechselstift-likes";
+
+const countEl = document.getElementById("count");
+const btn = document.getElementById("likeBtn");
+	
+function updateButton() {
+    const liked = localStorage.getItem("liked");
+
+    if(liked === "true") {
+        btn.innerText = "";
+        btn.classList.add("liked");
+    } else {
+        btn.innerText = "";
+        btn.classList.remove("liked");
+    }
+}
+
+async function getCount() {
+
+    const res = await fetch(BASE_URL, {
+        headers: {
+            "Authorization": `Bearer ${API_KEY}`
+        }
+    });
+
+    const data = await res.json();
+
+    countEl.innerText = data.value;
+}
+
+async function toggleLike() {
+
+    const liked = localStorage.getItem("liked");
+
+    let endpoint = "/up";
+
+    if(liked === "true") {
+        endpoint = "/down";
+        localStorage.setItem("liked", "false");
+    } else {
+        localStorage.setItem("liked", "true");
+    }
+
+    const res = await fetch(BASE_URL + endpoint, {
+        method: "POST",
+        headers: {
+            "Authorization": `Bearer ${API_KEY}`
+        }
+    });
+
+    const data = await res.json();
+
+    countEl.innerText = data.value;
+
+    updateButton();
+}
+
+btn.addEventListener("click", toggleLike);
+
+getCount();
+updateButton();
+
+loadLikes();
+
 
 
 

@@ -928,7 +928,16 @@ opacity:0.5;
 
 
 
+likebutton{
+    font-size:50px;
+    border:none;
+    background:none;
+    cursor:pointer;
+}
 
+.liked{
+    color:green;
+}
 
 
 
