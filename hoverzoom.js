@@ -116,10 +116,10 @@ const BASE_URL =
 
 const countEl = document.getElementById("count");
 const btn = document.getElementById("likeBtn");
-	
+
 function updateButton() {
     const liked = localStorage.getItem("liked");
- console.log("LIKE  geklickt");
+
     if(liked === "true") {
         btn.innerText = "";
         btn.classList.add("liked");
@@ -172,10 +172,6 @@ async function toggleLike() {
 btn.addEventListener("click", toggleLike);
 
 getCount();
-updateButton();
-
-loadLikes();
- console.log("geladen");
 
 
 
