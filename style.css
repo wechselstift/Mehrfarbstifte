@@ -134,8 +134,7 @@ main::after {
 
 #main {
 	position:relative;
-	    display: flex;
-    flex-wrap: wrap; 
+
     padding: 30px;
 
 }
@@ -267,9 +266,7 @@ ul li::before {
 }
 
 #bilder {
-	    max-width: 30%;
-		float: right;
-		padding-right: 10px;
+	    position:static;
 }
 
 .smallimage {

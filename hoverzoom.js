@@ -109,15 +109,15 @@ function positioniereBilder() {
 
     document.querySelectorAll(".bildanker").forEach(anker => {
 
-        const bildID = anker.dataset.bild;
+        const bildID = anker.dataset.bild; // 'data-bild' im html-dokument: dataset -> bild. Ist gleich wie die ID der tatsächlichen Bilder. (zb bild1)
         const bild = document.getElementById(bildID);
 
-        const ankerRect = anker.getBoundingClientRect();
+        const ankerRect = anker.getBoundingClientRect();  //größe des bildes, daswir gerade per ID bekommen haben
 
         bild.style.position = "absolute";
-        bild.style.left = "80%";
+        bild.style.left = "80%"; // Fängt da an, wo content (text) aufhört, nämlich bei 80% des main-containers
         bild.style.top =
-            (ankerRect.top - mainRect.top) + "px";
+            (ankerRect.top - mainRect.top) + "px";  
     });
 }
 	
