@@ -98,29 +98,48 @@ fetch("rechts.html")
 	
   });
     
-	
-window.addEventListener("load", positioniereBilder);
+	window.addEventListener("load", positioniereBilder);
 window.addEventListener("resize", positioniereBilder);
 
 function positioniereBilder() {
 
     const main = document.getElementById("main");
     const mainRect = main.getBoundingClientRect();
+    const mainWidth = main.clientWidth;
+
+    const left = mainWidth * 0.70;
+    const right = mainWidth * 0.95;
+    const availableWidth = right - left;
 
     document.querySelectorAll(".bildanker").forEach(anker => {
 
-        const bildID = anker.dataset.bild; // 'data-bild' im html-dokument: dataset -> bild. Ist gleich wie die ID der tatsächlichen Bilder. (zb bild1)
+        const bildID = anker.dataset.bild;
         const bild = document.getElementById(bildID);
 
-        const ankerRect = anker.getBoundingClientRect();  //größe des bildes, daswir gerade per ID bekommen haben
+        if (!bild) return;
+
+        const ankerRect = anker.getBoundingClientRect();
+
+        // Position vertikal am Textanker ausrichten
+        const top = ankerRect.top - mainRect.top;
 
         bild.style.position = "absolute";
-        bild.style.left = "80%"; // Fängt da an, wo content (text) aufhört, nämlich bei 80% des main-containers
-        bild.style.top =
-            (ankerRect.top - mainRect.top) + "px";  
+        bild.style.top = top + "px";
+
+        // maximale Breite begrenzen
+        bild.style.maxWidth = availableWidth + "px";
+        bild.style.height = "auto";
+
+        // echte Breite ermitteln (nach maxWidth)
+        const imgWidth = Math.min(bild.naturalWidth || availableWidth, availableWidth);
+
+        // Zentrierung im 70–95% Bereich
+        const centeredLeft = left + (availableWidth - imgWidth) / 2;
+
+        bild.style.left = centeredLeft + "px";
+        bild.style.width = imgWidth + "px";
     });
 }
-	
 	
 	
 	
