@@ -101,14 +101,20 @@ fetch("rechts.html")
 	window.addEventListener("load", positioniereBilder);
 window.addEventListener("resize", positioniereBilder);
 
-function positioniereBilder() {
+function positioniereBilder() {  
+
+// Damit mobil und desktop die bilder rechts auf derselben höhe angezeigt werden. Einfach im text ein <span> mit <span class="bildanker" data-bild="bild1"> setzen, 
+ // dann weiter unten wo die bilder stehen <img id="bild1"> und die nummer anpassen. 
+ // Bilder werden automatisch skaliert sodass sie links auf 70% sind und rechts auf 98% 
+ // Die höhe wird berechnet durch bounding client rects (diese sin vom viewport gemessen). Da die absolute px zahl vom bild nicht relativ zum viewport, sondern zum parent div ist, 
+ // muss textstelle ('anker') minus main gerechnet werden (die distanzen zum viewport nach oben). 
 
     const main = document.getElementById("main");
     const mainRect = main.getBoundingClientRect();
     const mainWidth = main.clientWidth;
 
-    const left = mainWidth * 0.70;
-    const right = mainWidth * 0.95;
+    const left = mainWidth * 0.70;  //linker rand ab 70% des textcontainers 
+    const right = mainWidth * 0.98;  // rechter rand des bildes bei 98% des textcontainers 
     const availableWidth = right - left;
 
     document.querySelectorAll(".bildanker").forEach(anker => {
