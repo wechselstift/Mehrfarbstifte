@@ -98,6 +98,34 @@ fetch("rechts.html")
 	
   });
     
+	
+window.addEventListener("load", positioniereBilder);
+window.addEventListener("resize", positioniereBilder);
+
+function positioniereBilder() {
+
+    const main = document.getElementById("main");
+    const mainRect = main.getBoundingClientRect();
+
+    document.querySelectorAll(".bildanker").forEach(anker => {
+
+        const bildID = anker.dataset.bild;
+        const bild = document.getElementById(bildID);
+
+        const ankerRect = anker.getBoundingClientRect();
+
+        bild.style.position = "absolute";
+        bild.style.left = "80%";
+        bild.style.top =
+            (ankerRect.top - mainRect.top) + "px";
+    });
+}
+	
+	
+	
+	
+	
+	
 
 
 const MAX_IMAGES = 60;   
