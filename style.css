@@ -110,7 +110,11 @@ border-left: 10px solid #877d68;
     object-fit: cover;     
 }
 
-
+a {
+    pointer-events: auto;
+	    position: relative; /* oder absolute/fixed */
+    z-index: 9999;
+}
 
 #navigation {
     background: #374045;
