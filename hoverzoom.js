@@ -131,6 +131,8 @@ function positioniereBilder() {
 
         bild.style.position = "absolute";
         bild.style.top = top + "px";
+		
+		
 
         // maximale Breite begrenzen
         bild.style.maxWidth = availableWidth + "px";
@@ -145,6 +147,13 @@ function positioniereBilder() {
         bild.style.left = centeredLeft + "px";
         bild.style.width = imgWidth + "px";
     });
+	
+document.querySelectorAll("#bilder img").forEach(img => {     //mit id=data-scale  kannst du bei <img> die skalierung angeben. skaliert wird top-center sodass der rand mit der position im text weiterhin stimmt!
+    const scale = parseFloat(img.dataset.scale || "1");
+
+    img.style.transform = `scale(${scale})`;
+    img.style.transformOrigin = "top center";
+});
 }
 	
 	
