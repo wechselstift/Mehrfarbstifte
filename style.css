@@ -96,7 +96,7 @@ border-left: 10px solid #877d68;
 
 
 }
-main::after {
+#main::after {
     content: "";
     display: table;
     clear: both;
