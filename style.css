@@ -756,11 +756,10 @@ path {
 	gap: 10px;
 	display:flex;
     position: absolute;
-	bottom: 5px;
-	right: 10px;
+	bottom: 0px;
+	right: 0px;
 }
 
-/* Button-Style */
 .img-button {
     width: 60px;
 	height: 40px;

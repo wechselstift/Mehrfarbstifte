@@ -35,6 +35,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+ fetch("suchleiste.html")
+  .then(res => res.text())
+  .then(data => {
+    const foot = document.getElementById("suchleiste");
+    if (foot) foot.innerHTML = data;
+	
+  });
 
 
      fetch("rechts.html")
@@ -59,18 +66,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     });
 
-
-     
-});
-    
-
-
-fetch("footer.html")
+	fetch("footer.html")
   .then(res => res.text())
   .then(data => {
     const foot = document.getElementById("footer");
     if (foot) foot.innerHTML = data;
+	
   });
+
 
 
 fetch("banner.html")
@@ -78,25 +81,17 @@ fetch("banner.html")
   .then(data => {
     const foot = document.getElementById("banner-wrapper");
     if (foot) foot.innerHTML = data;
+		
   });
+  
+
+initsearch();
+     
+});
+    
 
 
 
-fetch("rechts.html")
-  .then(res => res.text())
-  .then(data => {
-    const foot = document.getElementById("rechts");
-    if (foot) foot.innerHTML = data;
-	
-	
-	
-	
-
-
-	
-	
-	
-  });
     
 	window.addEventListener("load", positioniereBilder);
 window.addEventListener("resize", positioniereBilder);
@@ -167,6 +162,7 @@ const VISIBLE = 15;
 
 const track = document.getElementById("trackCarousel");
 
+if(track!=null) {
 // 1. Bildliste erzeugen
 let images = [];
 for (let i = 1; i <= MAX_IMAGES; i++) {
@@ -204,6 +200,7 @@ let finalImages = sequence.concat(sequence);
 // 6. DOM erzeugen
 finalImages.forEach(src => {
   const tile = document.createElement("div");
+ 
   tile.className = "tile";
 
   if (src) {
@@ -238,7 +235,7 @@ const scrollDistance = (middleCols + colsVisible) * (tileSize + gap);
 // CSS Variable setzen
 track.style.setProperty('--scroll-distance', `-${scrollDistance}px`);
 
-
+}
 
 // Webseiten-Like
 
@@ -246,14 +243,14 @@ track.style.setProperty('--scroll-distance', `-${scrollDistance}px`);
  
  // SUCHE. JSON-datei hat suchbegriffe pro seite. (bei neuer seite suchindex erweitern manuell!
 
-
+function initsearch() {
 
 
 fetch("searchindex.json")
     .then(r => r.json())
     .then(data => {
         pages = data;
-		console.log("JSON geladen:", pages);
+		console.log("Geladen");
     });
 	
 	
@@ -349,7 +346,7 @@ const resultsDiv = document.getElementById("results");
 let currentResults = [];
 let selectedIndex = -1;
 
-input.addEventListener("input", function () {
+input.addEventListener("input", function (e) {
 
   const q = this.value;
 
@@ -404,7 +401,7 @@ input.addEventListener("keydown", function (e) {
     window.location.href = currentResults[selectedIndex].url;
   }
 });	
-
+}
 
 
 
