@@ -247,7 +247,7 @@ track.style.setProperty('--scroll-distance', `-${scrollDistance}px`);
  // SUCHE. JSON-datei hat suchbegriffe pro seite. (bei neuer seite suchindex erweitern manuell!
 
 
-let pages = [];
+
 
 fetch("searchindex.json")
     .then(r => r.json())
@@ -255,36 +255,155 @@ fetch("searchindex.json")
         pages = data;
 		console.log("JSON geladen:", pages);
     });
+	
+	
+function normalize(text) {
+  return text
+    .toLowerCase()
+    .replace(/[-_\s]/g, "")
+    .trim();
+}
 
-document.getElementById("search").addEventListener("input", function() {
+function scorePage(query, page) {
 
-    const query = this.value.toLowerCase().trim();
-	console.log("Suche");
-    if (!query) {
-        document.getElementById("results").innerHTML = "";
-        return;
+  const q = normalize(query);
+
+  let score = 100;
+
+  // Titel stärker gewichten
+  const title = normalize(page.title);
+
+  if (title === q) return 0;                
+  if (title.includes(q)) score = 1;          
+
+  // Tags prüfen
+  for (const tag of page.tags) {
+
+    const t = normalize(tag);
+
+    if (t === q) return 0;                  // exakter Tag
+    if (t.includes(q)) score = Math.min(score, 2);
+
+    const dist = levenshtein(q, t);
+    score = Math.min(score, dist + 2);
+  }
+
+  return score;
+}
+	
+	
+function normalize(text) {
+  return text
+    .toLowerCase()
+    .replace(/[-_\s]/g, "")   // bindestrich, underscore, leerzeichen 
+    .trim();
+}	
+	
+function levenshtein(a, b) {
+  const matrix = [];
+
+  for (let i = 0; i <= b.length; i++) matrix[i] = [i];
+  for (let j = 0; j <= a.length; j++) matrix[0][j] = j;
+
+  for (let i = 1; i <= b.length; i++) {
+    for (let j = 1; j <= a.length; j++) {
+      matrix[i][j] =
+        a[j - 1] === b[i - 1]
+          ? matrix[i - 1][j - 1]
+          : Math.min(
+              matrix[i - 1][j - 1] + 1,
+              matrix[i][j - 1] + 1,
+              matrix[i - 1][j] + 1
+            );
     }
+  }
 
-    const matches = pages.filter(page =>
-        page.tags.some(tag =>
-            tag.toLowerCase().includes(query)
-        )
-    );
+  return matrix[b.length][a.length];
+}	
+	
+function search(query, pages) {
 
-    document.getElementById("results").innerHTML =
-        matches.map(page => `
-            <div class="search-result">
-                <a href="${page.url}">
-                    ${page.title}
-					
-                </a>
-            </div>
-        `).join("");
+  const q = query.trim();
+  if (q.length < 3) return [];
+
+  return pages
+    .map(page => ({
+      page,
+      score: scorePage(q, page)
+    }))
+    .filter(x => x.score <= 5)
+    .sort((a, b) => a.score - b.score)
+    .map(x => x.page);
+}
+
+function highlight(text, query) {
+  const q = query.toLowerCase();
+  return text.replace(new RegExp(q, "gi"), match =>
+    `<mark>${match}</mark>`
+  );
+}
+	
+	const input = document.getElementById("search");
+const resultsDiv = document.getElementById("results");
+
+let currentResults = [];
+let selectedIndex = -1;
+
+input.addEventListener("input", function () {
+
+  const q = this.value;
+
+  if (q.length < 3) {
+    resultsDiv.innerHTML = "";
+    return;
+  }
+
+  currentResults = search(q, pages).slice(0,10);
+  selectedIndex = -1;
+
+  render(q);
 });
 
+function render(query) {
 
+  resultsDiv.innerHTML = currentResults.map((page, i) => `
+    <div class="result ${i === selectedIndex ? "active" : ""}">
+      <a href="${page.url}">
+        ${highlight(page.title, query)}
+      </a>
+    </div>
+  `).join("");
+  
+  resultsDiv.innerHTML += `
+      <div class="result">
+      <p style="font-size:11px; line-height: 1.2; display:block;">
+       <i>Finden Sie noch nichts? Kontaktieren Sie mich gerne! <br>
+	   Die Seite ist noch im Aufbau. </i>
+      </p>
+    </div>
+  
+  
+  `;
+}
 
+input.addEventListener("keydown", function (e) {
 
+  if (!currentResults.length) return;
+
+  if (e.key === "ArrowDown") {
+    selectedIndex = Math.min(selectedIndex + 1, currentResults.length - 1);
+    render(this.value);
+  }
+
+  if (e.key === "ArrowUp") {
+    selectedIndex = Math.max(selectedIndex - 1, 0);
+    render(this.value);
+  }
+
+  if (e.key === "Enter" && selectedIndex >= 0) {
+    window.location.href = currentResults[selectedIndex].url;
+  }
+});	
 
 
 

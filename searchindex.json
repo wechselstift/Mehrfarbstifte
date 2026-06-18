@@ -2,11 +2,73 @@
   {
     "title": "Fend",
     "url": "fend.html",
-    "tags": ["fend", "fendt", "fent"]
+    "tags": ["fend", "deutschland", "germany", "pforzheim", "norma", "truxa"]
+  },
+   {
+    "title": "Fend (Norma)",
+    "url": "fendnorma.html",
+    "tags": ["norma", "deutschland", "germany", "pforzheim"]
+  },
+   {
+    "title": "Fend (Super-Norma)",
+    "url": "fendsupernorma.html",
+    "tags": ["super norma", "deutschland", "germany", "pforzheim"]
+  },
+   {
+    "title": "Fend (Typokrat)",
+    "url": "typokrat.html",
+    "tags": ["typokrat", "cleo skribent", "japan", "deutschland", "germany", "kanoe", "peace", "morita", "sarastro", "USA", "Truxa", "pforzheim"]
+  },
+   {
+    "title": "Goldfink",
+    "url": "goldfink.html",
+    "tags": ["fend", "berlin", "deutschland", "germany", "pforzheim"]
   },
   {
-    "title": "Waldmann",
+    "title": "Waldmann (USUS)",
     "url": "waldmann.html",
-    "tags": ["usus", "waldmann", "rotring"]
+    "tags": ["usus", "waldmann", "rotring", "deutschland", "germany", "pforzheim"]
+  }
+  ,
+  {
+    "title": "Ritepoint",
+    "url": "ritepoint.html",
+    "tags": ["USA"]
+  }
+    ,
+  {
+    "title": "Norma Multikolor (USA)",
+    "url": "norma.html",
+    "tags": ["USA", "Norma", "multikolor"]
+  }
+  ,
+  {
+    "title": "Montblanc",
+    "url": "montblanc.html",
+    "tags": ["bolascrip", "fend", "pix-o-mat", "carrera"]
+  }
+  ,
+  {
+    "title": "Faber-Castell",
+    "url": "waldmann.html",
+    "tags": ["faber", "johann", "AW", "deutschland", "germany", "four in hand"]
+  }
+  ,
+  {
+    "title": "Mehrfarbfüller",
+    "url": "füllfederhalter.html",
+    "tags": ["füller", "füllfederhalter", "mehrfarb", "italien", "italy"]
+  }
+  ,
+  {
+    "title": "Rotring",
+    "url": "rotring.html",
+    "tags": ["riepe", "waldmann", "newell", "deutschland", "germany"]
+  }
+  ,
+  {
+    "title": "Bossert & Erhard (color, boscolor)",
+    "url": "bossert.html",
+    "tags": ["color", "boscolor", "montblanc", "rotring", "deutschland", "germany"]
   }
 ]
