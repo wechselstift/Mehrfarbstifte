@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", function () {
      const ups = document.querySelectorAll(".fnup");
      const downs = document.querySelectorAll(".fndwn");
 
+	positioniereBilder();
+
       ups.forEach((fn, i) => {
     const n = i + 1;
 
@@ -25,21 +27,10 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
      
-  const images = document.querySelectorAll("img");
-
-  images.forEach(img => {
-    img.addEventListener("error", () => {
-      sessionStorage.setItem("imgReloaded", "true");
-      console.warn("Bildfehler – Seite wird einmal neu geladen");
-      location.reload();
-    });
-  });
 
 
 
 
-
-initsearch();
      
 });
     
