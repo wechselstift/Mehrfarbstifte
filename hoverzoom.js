@@ -35,13 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
- fetch("suchleiste.html")
-  .then(res => res.text())
-  .then(data => {
-    const foot = document.getElementById("suchleiste");
-    if (foot) foot.innerHTML = data;
-	
-  });
+
 
 
      fetch("rechts.html")
