@@ -242,6 +242,45 @@ track.style.setProperty('--scroll-distance', `-${scrollDistance}px`);
 
 // Webseiten-Like
 
+ 
+ 
+ // SUCHE. JSON-datei hat suchbegriffe pro seite. (bei neuer seite suchindex erweitern manuell!
+
+
+let pages = [];
+
+fetch("searchindex.json")
+    .then(r => r.json())
+    .then(data => {
+        pages = data;
+		console.log("JSON geladen:", pages);
+    });
+
+document.getElementById("search").addEventListener("input", function() {
+
+    const query = this.value.toLowerCase().trim();
+	console.log("Suche");
+    if (!query) {
+        document.getElementById("results").innerHTML = "";
+        return;
+    }
+
+    const matches = pages.filter(page =>
+        page.tags.some(tag =>
+            tag.toLowerCase().includes(query)
+        )
+    );
+
+    document.getElementById("results").innerHTML =
+        matches.map(page => `
+            <div class="search-result">
+                <a href="${page.url}">
+                    ${page.title}
+					
+                </a>
+            </div>
+        `).join("");
+});
 
 
 
