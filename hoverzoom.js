@@ -38,6 +38,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+
+initsearch();
+     
+});
+    
+
      fetch("rechts.html")
   .then(res => res.text())
   .then(html => {
@@ -78,12 +84,6 @@ fetch("banner.html")
 		
   });
   
-
-initsearch();
-     
-});
-    
-
 
 
     
