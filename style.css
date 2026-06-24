@@ -69,9 +69,6 @@ border-left: 10px solid #877d68;
     margin: 0 auto;
     background: #D6C8AE;
    font-family: Georgia, "Times New Roman", serif;
-	
-
-
 }
 #main::after {
     content: "";
