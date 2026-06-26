@@ -1,229 +1,203 @@
 
 
-document.addEventListener("DOMContentLoaded", function () {
+function ladeNavigation() {
+    // Gibt das Promise zurück, damit wir wissen, wann die Navigation FERTIG ist
+    return fetch("rechts.html", { cache: "no-cache" })
+        .then(res => res.ok ? res.text() : Promise.reject("rechts.html nicht gefunden"))
+        .then(html => {
+            const rechts = document.getElementById("rechts");
+            if (rechts) rechts.innerHTML = html;
+            console.log("Navigation geladen");
+        });
+}
 
-     if (sessionStorage.getItem("imgReloaded")) return;
+function ladeFooter() {
+    fetch("footer.html", { cache: "no-cache" })
+        .then(res => res.ok ? res.text() : Promise.reject("footer.html nicht gefunden"))
+        .then(data => {
+            const foot = document.getElementById("footer");
+            if (foot) foot.innerHTML = data;
+            console.log("Footer geladen");
+        })
+        .catch(err => console.error(err));
+}
 
-     const ups = document.querySelectorAll(".fnup");
-     const downs = document.querySelectorAll(".fndwn");
-
-	positioniereBilder();
-
-      ups.forEach((fn, i) => {
-    const n = i + 1;
-
-    // IDs setzen
-    fn.id = `fnref-${n}`;
-    downs[i].id = `fn-${n}`;
-
-    // Text-Fußnote
-    const upLink = fn.querySelector("a");
-    upLink.textContent = n;
-    upLink.href = `#fn-${n}`;
-
-    // Rücksprung
-    const downLink = downs[i].querySelector(".fnback");
-    downLink.href = `#fnref-${n}`;
-  });
-
-     
+function ladeBanner() {
+    fetch("banner.html", { cache: "no-cache" })
+        .then(res => res.ok ? res.text() : Promise.reject("banner.html nicht gefunden"))
+        .then(data => {
+            const banner = document.getElementById("banner-wrapper");
+            if (banner) banner.innerHTML = data;
+            console.log("Banner geladen");
+        })
+        .catch(err => console.error(err));
+}
 
 
 
-
-     
-});
-    
-
-     fetch("rechts.html")
-  .then(res => res.text())
-  .then(html => {
-    document.getElementById("rechts").innerHTML = html;
-
+function navigationHighlighting() {
     const currentPage = decodeURIComponent(
-      location.pathname.split("/").pop() || "index.html"
+        location.pathname.split("/").pop() || "index.html"
     );
 
     document.querySelectorAll("#navi a").forEach(link => {
-      const href = link.getAttribute("href");
+        const href = link.getAttribute("href");
+        if (!href || href === "#" || href.startsWith("http")) return;
 
-      if (!href || href === "#" || href.startsWith("http")) return;
-
-      const linkPage = decodeURIComponent(href.split("/").pop());
-
-      if (linkPage === currentPage) {
-        link.classList.add("active");
-      }
+        const linkPage = decodeURIComponent(href.split("/").pop());
+        if (linkPage === currentPage) {
+            link.classList.add("active");
+        }
     });
+    console.log("Highlighting ausgeführt");
+}
+
+function fußnoten() {
+    const ups = document.querySelectorAll(".fnup");
+    const downs = document.querySelectorAll(".fndwn");
+
+    ups.forEach((fn, i) => {
+        if (!downs[i]) return; // Schutz vor Fehlern, falls Längen ungleich
+        const n = i + 1;
+
+        fn.id = `fnref-${n}`;
+        downs[i].id = `fn-${n}`;
+
+        const upLink = fn.querySelector("a");
+        if (upLink) {
+            upLink.textContent = n;
+            upLink.href = `#fn-${n}`;
+        }
+
+        const downLink = downs[i].querySelector(".fnback");
+        if (downLink) downLink.href = `#fnref-${n}`;
     });
-
-	fetch("footer.html")
-  .then(res => res.text())
-  .then(data => {
-    const foot = document.getElementById("footer");
-    if (foot) foot.innerHTML = data;
-	
-  });
-
-
-
-fetch("banner.html")
-  .then(res => res.text())
-  .then(data => {
-    const foot = document.getElementById("banner-wrapper");
-    if (foot) foot.innerHTML = data;
-		
-  });
-  
-
-
-    
-	window.addEventListener("load", positioniereBilder);
-window.addEventListener("resize", positioniereBilder);
+    console.log("Fußnoten verarbeitet");
+}
 
 function positioniereBilder() {  
-
-// Damit mobil und desktop die bilder rechts auf derselben höhe angezeigt werden. Einfach im text ein <span> mit <span class="bildanker" data-bild="bild1"> setzen, 
- // dann weiter unten wo die bilder stehen <img id="bild1"> und die nummer anpassen. 
- // Bilder werden automatisch skaliert sodass sie links auf 70% sind und rechts auf 98% 
- // Die höhe wird berechnet durch bounding client rects (diese sin vom viewport gemessen). Da die absolute px zahl vom bild nicht relativ zum viewport, sondern zum parent div ist, 
- // muss textstelle ('anker') minus main gerechnet werden (die distanzen zum viewport nach oben). 
-
     const main = document.getElementById("main");
+    if (!main) return;
+
     const mainRect = main.getBoundingClientRect();
     const mainWidth = main.clientWidth;
 
-    const left = mainWidth * 0.70;  //linker rand ab 70% des textcontainers 
-    const right = mainWidth * 0.98;  // rechter rand des bildes bei 98% des textcontainers 
+    const left = mainWidth * 0.70;  
+    const right = mainWidth * 0.98;  
     const availableWidth = right - left;
 
     document.querySelectorAll(".bildanker").forEach(anker => {
-
         const bildID = anker.dataset.bild;
         const bild = document.getElementById(bildID);
-
         if (!bild) return;
 
         const ankerRect = anker.getBoundingClientRect();
-
-        // Position vertikal am Textanker ausrichten
         const top = ankerRect.top - mainRect.top;
 
         bild.style.position = "absolute";
         bild.style.top = top + "px";
-		
-		
-
-        // maximale Breite begrenzen
         bild.style.maxWidth = availableWidth + "px";
         bild.style.height = "auto";
 
-        // echte Breite ermitteln (nach maxWidth)
         const imgWidth = Math.min(bild.naturalWidth || availableWidth, availableWidth);
-
-        // Zentrierung im 70–95% Bereich
         const centeredLeft = left + (availableWidth - imgWidth) / 2;
 
         bild.style.left = centeredLeft + "px";
         bild.style.width = imgWidth + "px";
     });
-	
-document.querySelectorAll("#bilder img").forEach(img => {     //mit id=data-scale  kannst du bei <img> die skalierung angeben. skaliert wird top-center sodass der rand mit der position im text weiterhin stimmt!
-    const scale = parseFloat(img.dataset.scale || "1");
-
-    img.style.transform = `scale(${scale})`;
-    img.style.transformOrigin = "top center";
-});
-}
-	
-	
-	
-	
-	
-
-
-const MAX_IMAGES = 60;   
-const VISIBLE = 15;     
-
-const track = document.getElementById("trackCarousel");
-
-if(track!=null) {
-// 1. Bildliste erzeugen
-let images = [];
-for (let i = 1; i <= MAX_IMAGES; i++) {
-  images.push(`images/logos/logo${i}.png`);
+    
+    document.querySelectorAll("#bilder img").forEach(img => {
+        const scale = parseFloat(img.dataset.scale || "1");
+        img.style.transform = `scale(${scale})`;
+        img.style.transformOrigin = "top center";
+    });
 }
 
-// OPTIONAL Shuffle
- images = shuffle(images);
 
-// 2. Erste 15
-let selected = images.slice(0, VISIBLE);
 
-// 3. Rest
-let rest = images.slice(VISIBLE);
+function starteCarousel() {
+    const MAX_IMAGES = 60;   
+    const VISIBLE = 15;     
+    const track = document.getElementById("trackCarousel");
 
-// 4. Rest auf 3er Grid auffüllen
-const ROWS = 3;
-let remainder = rest.length % ROWS;
+    if (!track) return;
 
-if (remainder !== 0) {
-  let missing = ROWS - remainder;
-  for (let i = 0; i < missing; i++) {
-    rest.push(null); // leere tiles
-  }
+    let images = [];
+    for (let i = 1; i <= MAX_IMAGES; i++) {
+        images.push(`images/logos/logo${i}.png`);
+    }
+
+    images = shuffle(images);
+    let selected = images.slice(0, VISIBLE);
+    let rest = images.slice(VISIBLE);
+
+    const ROWS = 3;
+    let remainder = rest.length % ROWS;
+    if (remainder !== 0) {
+        let missing = ROWS - remainder;
+        for (let i = 0; i < missing; i++) {
+            rest.push(null);
+        }
+    }
+
+    let sequence = [...selected, ...rest];
+    let finalImages = sequence.concat(sequence);
+
+    finalImages.forEach(src => {
+        const tile = document.createElement("div");
+        tile.className = "tile";
+        if (src) {
+            const img = document.createElement("img");
+            img.src = src;
+            tile.appendChild(img);
+        }
+        track.appendChild(tile);
+    });
+
+    function shuffle(arr) {
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+    }
+
+    const tileSize = 90;
+    const gap = 10;
+    const colsVisible = 5;
+    const middleCols = rest.length / ROWS;
+    const scrollDistance = (middleCols + colsVisible) * (tileSize + gap);
+
+    track.style.setProperty('--scroll-distance', `-${scrollDistance}px`);
+    console.log("Carousel geladen");
 }
 
-let sequence = [
-  ...selected,
-  ...rest
-];
-
-//  komplette Sequenz duplizieren
-let finalImages = sequence.concat(sequence);
-
-// 6. DOM erzeugen
-finalImages.forEach(src => {
-  const tile = document.createElement("div");
- 
-  tile.className = "tile";
-
-  if (src) {
-    const img = document.createElement("img");
-    img.src = src;
-    tile.appendChild(img);
-  }
-
-  track.appendChild(tile);
-});
 
 
-// Shuffle Funktion
-function shuffle(arr) {
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
-  return arr;
+function initialisiereWebseite() {
+    // Unabhängige Inhalte laden
+    ladeFooter();
+    ladeBanner();
+    fußnoten();
+    starteCarousel();
+
+    // Navigation laden UND ERST DANACH das Highlighting ausführen 
+    ladeNavigation()
+        .then(() => {
+            navigationHighlighting();
+        })
+        .catch(err => console.error("Fehler beim Highlighten:", err));
+
+    // Bilder positionieren (einmalig beim Start)
+    positioniereBilder();
 }
 
-const tileSize = 90;
-const gap = 10;
-const colsVisible = 5;
+window.addEventListener("load", positioniereBilder);
+window.addEventListener("resize", positioniereBilder);
 
-// wie viele "Spalten" hat der Mittelteil?
-const middleCols = rest.length / ROWS;
 
-// Strecke berechnen
-const scrollDistance = (middleCols + colsVisible) * (tileSize + gap);
-
-// CSS Variable setzen
-track.style.setProperty('--scroll-distance', `-${scrollDistance}px`);
-
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initialisiereWebseite);
+} else {
+    initialisiereWebseite();
 }
-
-// Webseiten-Like
-
- 
- 
-
