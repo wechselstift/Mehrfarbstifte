@@ -13,9 +13,6 @@ function initialisiereWebseite() {
     });
         }
     }, 100)
-	
-
-	
 }
 
 if (document.readyState === "loading") {

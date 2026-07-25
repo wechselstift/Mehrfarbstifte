@@ -189,15 +189,16 @@ function initialisiereWebseite() {
     ladeNavigation()
         .then(() => {
             navigationHighlighting();
+			document.getElementById("bannerclick").addEventListener("click", function () {
+    location.href = "index.html";
+});
         })
         .catch(err => console.error("Fehler beim Highlighten:", err));
 
     // Bilder positionieren (einmalig beim Start)
     positioniereBilder();
 	
-	document.getElementById("bannerclick").addEventListener("click", function () {
-    location.href = "index.html";
-});
+	
 }
 
 window.addEventListener("load", positioniereBilder);
