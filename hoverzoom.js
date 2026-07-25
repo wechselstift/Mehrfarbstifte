@@ -186,10 +186,10 @@ ladeBanner()
         fetch("https://vierfarbkuli.goatcounter.com/counter/TOTAL.json")
             .then(response => response.json())
             .then(data => {
-                let zahl = Number(data.count) + 82;
+                let zahl = Number(data.count_unique) + 82;
 
                 document.getElementById("counter").textContent =
-                    "Besucher: " + zahl.toLocaleString("de-DE");
+                    "Besucherzahl: " + zahl.toLocaleString("de-DE");
             })
             .catch(error => {
                 console.error("Counter Fehler:", error);
