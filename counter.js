@@ -4,17 +4,14 @@
 function initialisiereWebseite() {
 	
 
-             fetch("https://vierfarbkuli.goatcounter.com/counter/total.json")
+      fetch("https://vierfarbkuli.goatcounter.com/counter/TOTAL")
     .then(response => response.json())
     .then(data => {
-        let zahl = data.count;
+        let zahl = Number(data.count) + 1000;
 
-        // hier kannst du etwas addieren:
-        zahl = Number(zahl) + 1000;
-
-        document.getElementById("counter").textContent = zahl;
+        document.getElementById("counter").textContent =
+            zahl.toLocaleString("de-DE");
     });
-      
 }
 
 if (document.readyState === "loading") {
