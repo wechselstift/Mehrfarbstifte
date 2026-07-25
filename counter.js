@@ -3,10 +3,8 @@
 
 function initialisiereWebseite() {
 	
-	var t = setInterval(function() {
-        if (window.goatcounter && window.goatcounter.visit_count) {
-            clearInterval(t)
-           fetch("https://vierfarbkuli.goatcounter.com/counter/total.json")
+
+             fetch("https://vierfarbkuli.goatcounter.com/counter/total.json")
     .then(response => response.json())
     .then(data => {
         let zahl = data.count;
@@ -16,8 +14,7 @@ function initialisiereWebseite() {
 
         document.getElementById("counter").textContent = zahl;
     });
-        }
-    }, 100)
+      
 }
 
 if (document.readyState === "loading") {
