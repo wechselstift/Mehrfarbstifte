@@ -23,7 +23,7 @@ function ladeFooter() {
 }
 
 function ladeBanner() {
-    fetch("banner.html", { cache: "no-cache" })
+    return fetch("banner.html", { cache: "no-cache" })
         .then(res => res.ok ? res.text() : Promise.reject("banner.html nicht gefunden"))
         .then(data => {
             const banner = document.getElementById("banner-wrapper");
