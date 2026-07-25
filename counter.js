@@ -18,3 +18,8 @@ function initialisiereWebseite() {
 	
 }
 
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initialisiereWebseite);
+} else {
+    initialisiereWebseite();
+}
