@@ -194,6 +194,10 @@ function initialisiereWebseite() {
 
     // Bilder positionieren (einmalig beim Start)
     positioniereBilder();
+	
+	document.getElementById("bannerclick").addEventListener("click", function () {
+    location.href = "index.html";
+});
 }
 
 window.addEventListener("load", positioniereBilder);
