@@ -677,6 +677,8 @@ path {
     position: absolute;
 	bottom: 0px;
 	right: 0px;
+	background-color:white;
+	padding:5px;
 }
 
 .img-button {
