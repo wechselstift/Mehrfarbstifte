@@ -175,6 +175,14 @@ function starteCarousel() {
 
 
 function initialisiereWebseite() {
+	
+	var t = setInterval(function() {
+        if (window.goatcounter && window.goatcounter.visit_count) {
+            clearInterval(t)
+            window.goatcounter.visit_count({append: 'body'})
+        }
+    }, 100)
+	
     // Unabhängige Inhalte laden
     ladeFooter();
     ladeBanner();
