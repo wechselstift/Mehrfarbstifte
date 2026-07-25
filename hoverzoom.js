@@ -189,9 +189,7 @@ function initialisiereWebseite() {
     ladeNavigation()
         .then(() => {
             navigationHighlighting();
-			document.getElementById("bannerclick").addEventListener("click", function () {
-    location.href = "index.html";
-});
+			
         })
         .catch(err => console.error("Fehler beim Highlighten:", err));
 
