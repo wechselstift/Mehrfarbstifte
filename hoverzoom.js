@@ -108,8 +108,11 @@ function positioniereBilder() {
     
     document.querySelectorAll("#bilder img").forEach(img => {
         const scale = parseFloat(img.dataset.scale || "1");
-        img.style.transform = `scale(${scale})`;
+		const transform = parseFloat(img.dataset.move || "0");
+        img.style.transform = `scale(${scale}) translateX(${transform}px)`;
         img.style.transformOrigin = "top center";
+		
+
     });
 }
 

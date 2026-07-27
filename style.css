@@ -458,13 +458,13 @@ position: absolute;
 
 #hinweisoverlay {
  position: absolute;
-    top: -20px;     
+    top: -5px;     
     left: -10px;      
-    font-size: 35px;
+    font-size: 33px;
     font-weight: bold;
 	font-family: Great Vibes;
     color: black;       
-    transform: rotate(-40deg);  
+    transform: rotate(-35deg);  
     transform-origin: 50% 180%;     
     z-index: 10;
 }
