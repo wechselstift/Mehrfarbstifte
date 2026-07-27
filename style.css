@@ -452,13 +452,10 @@ position: absolute;
 	
 }
 
-.teee{
-	  
-}
 
 #hinweisoverlay {
  position: absolute;
-    top: -5px;     
+    top: -0px;     
     left: -10px;      
     font-size: 33px;
     font-weight: bold;
