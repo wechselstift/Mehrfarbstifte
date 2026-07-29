@@ -452,6 +452,15 @@ position: absolute;
 	
 }
 
+.clickimage{
+	cursor:pointer;
+	transition:transform 0.25s ease;
+}
+
+.clickimage:hover{
+	-webkit-transform:scale(1.02);
+    transform:scale(1.02);
+}
 
 #hinweisoverlay {
  position: absolute;
