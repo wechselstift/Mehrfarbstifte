@@ -203,7 +203,7 @@ ul li::before {
     width: 30px;
     height: 10px;
 	transform: translateY(-50%);
-    background-image: url("images/arrow.png");
+    background-image: url("images/arrow.webp");
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -375,7 +375,7 @@ ul li::before {
   padding: 40px;
   text-align: center;
   background-color: #F7E7C7;
-  background-image: url(images/rahmen2.png);
+  background-image: url(images/rahmen2.webp);
 	background-size: 100% 100%; background-repeat: no-repeat; 
 	background-position: center;
   position: relative;
@@ -390,7 +390,7 @@ ul li::before {
   padding: 35px;
   text-align: center;
   background-color: #f3dfc1;
-  background: url(images/rahmen6.png) center / contain no-repeat;
+  background: url(images/rahmen6.webp) center / contain no-repeat;
 	background-size: 100% 100%; background-repeat: no-repeat; background-position: center;
   position: relative;
   box-sizing: border-box;
@@ -933,7 +933,7 @@ button{
 
 
 
-
+/* ========================================== BILD-OVERLAY ========================================== */ #bild-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.75); display: flex; justify-content: center; align-items: center; z-index: 99999; opacity: 0; visibility: hidden; transition: opacity 0.2s ease, visibility 0.2s ease; } /* Overlay sichtbar */ #bild-overlay.sichtbar { opacity: 1; visibility: visible; } /* ========================================== CONTAINER ========================================== */ #bild-overlay-container { max-width: 90vw; max-height: 90vh; display: flex; flex-direction: column; align-items: center; justify-content: center; } /* ========================================== VERGRÖSSERTES BILD ========================================== */ #bild-overlay-img { max-width: 90vw; max-height: 82vh; width: auto; height: auto; object-fit: contain; display: block; } /* ========================================== HINWEIS UNTER DEM BILD ========================================== */ #bild-overlay-hinweis { margin-top: 12px; text-align: center; color: white; font-size: 16px; line-height: 1.4; }
 
 
 

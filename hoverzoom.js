@@ -227,3 +227,88 @@ if (document.readyState === "loading") {
 } else {
     initialisiereWebseite();
 }
+
+
+
+function initialisiereBildOverlay() {
+
+    // Overlay erstellen
+    const overlay = document.createElement("div");
+    overlay.id = "bild-overlay";
+
+    // Inhalt des Overlays
+    const container = document.createElement("div");
+    container.id = "bild-overlay-container";
+
+    const grossbild = document.createElement("img");
+    grossbild.id = "bild-overlay-img";
+
+    const hinweis = document.createElement("div");
+    hinweis.id = "bild-overlay-hinweis";
+    hinweis.textContent = "Vierfarbkuli.de";
+
+    container.appendChild(grossbild);
+    container.appendChild(hinweis);
+    overlay.appendChild(container);
+    document.body.appendChild(overlay);
+
+    // Alle Bilder anklickbar machen
+    document.querySelectorAll("#bilder img").forEach(bild => {
+
+        bild.style.cursor = "pointer";
+
+        bild.addEventListener("click", function (event) {
+
+            event.stopPropagation();
+
+            grossbild.src = bild.src;
+            grossbild.alt = bild.alt || "";
+
+            overlay.classList.add("sichtbar");
+
+            document.body.style.overflow = "hidden";
+        });
+    });
+
+    // Klick auf den abgedunkelten Bereich schließt das Bild
+    overlay.addEventListener("click", function (event) {
+
+        if (event.target === overlay) {
+            schliesseBildOverlay();
+        }
+    });
+
+    // ESC schließt ebenfalls
+    document.addEventListener("keydown", function (event) {
+
+        if (event.key === "Escape") {
+            schliesseBildOverlay();
+        }
+    });
+
+    function schliesseBildOverlay() {
+
+        overlay.classList.remove("sichtbar");
+
+        document.body.style.overflow = "";
+
+        // Bildquelle leeren
+        setTimeout(() => {
+            if (!overlay.classList.contains("sichtbar")) {
+                grossbild.src = "";
+            }
+        }, 200);
+    }
+}
+
+
+// Nach dem Laden der Seite starten
+if (document.readyState === "loading") {
+    document.addEventListener(
+        "DOMContentLoaded",
+        initialisiereBildOverlay
+    );
+} else {
+    initialisiereBildOverlay();
+}
+
