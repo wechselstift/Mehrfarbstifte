@@ -368,6 +368,139 @@ ul li::before {
     z-index: 2;
 }
 
+.before-after {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+
+    overflow: hidden;
+    user-select: none;
+    touch-action: pan-y;
+}
+
+/* Beide Bilder exakt übereinander */
+.before-after__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: auto;
+
+    display: block;
+}
+
+/*
+ * Das VORHER-Bild bestimmt die Höhe
+ * des gesamten Containers.
+ */
+.before-after__image.before {
+    position: relative;
+    z-index: 1;
+}
+
+/* NACHHER-Ebene */
+.before-after__after {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 2;
+
+    clip-path: inset(0 50% 0 0);
+}
+
+/* Nachher-Bild */
+.before-after__after .after {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: auto;
+
+    display: block;
+}
+
+/* Handle */
+.before-after__handle {
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    width: 3px;
+    height: 100%;
+
+    background: #fff;
+
+    transform: translateX(-50%);
+
+    z-index: 10;
+
+    cursor: ew-resize;
+
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.35);
+
+    touch-action: none;
+}
+
+/* Kreis */
+.before-after__handle span {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 50px;
+    height: 50px;
+
+    background: #fff;
+    border-radius: 50%;
+
+    transform: translate(-50%, -50%);
+
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Pfeil links */
+.before-after__handle span::before {
+    content: "";
+
+    position: absolute;
+    top: 50%;
+    left: 13px;
+
+    width: 9px;
+    height: 9px;
+
+    border-left: 2px solid #222;
+    border-bottom: 2px solid #222;
+
+    transform: translateY(-50%) rotate(45deg);
+}
+
+/* Pfeil rechts */
+.before-after__handle span::after {
+    content: "";
+
+    position: absolute;
+    top: 50%;
+    right: 13px;
+
+    width: 9px;
+    height: 9px;
+
+    border-top: 2px solid #222;
+    border-right: 2px solid #222;
+
+    transform: translateY(-50%) rotate(45deg);
+}
+
+
 #fragebox {
   width: 80%;
   max-width: 530px;

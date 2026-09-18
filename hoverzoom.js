@@ -232,6 +232,92 @@ if (document.readyState === "loading") {
 
 function initialisiereBildOverlay() {
 
+
+const slider = document.querySelector("#beforeAfter");
+    const after = slider.querySelector(".before-after__after");
+    const handle = slider.querySelector(".before-after__handle");
+
+    let dragging = false;
+
+    function updateSlider(clientX) {
+
+        const rect = slider.getBoundingClientRect();
+
+        let x = clientX - rect.left;
+
+        // Auf Slider begrenzen
+        x = Math.max(0, Math.min(x, rect.width));
+
+        const percentage = (x / rect.width) * 100;
+
+        /*
+         * NUR DER SICHTBARE BEREICH
+         * des Nachher-Bildes wird verändert.
+         *
+         * Das Bild selbst bleibt 100% groß
+         * und exakt an derselben Position.
+         */
+        after.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
+
+        // Handle verschieben
+        handle.style.left = `${percentage}%`;
+    }
+
+
+    /* Maus */
+
+    handle.addEventListener("mousedown", (event) => {
+        event.preventDefault();
+        dragging = true;
+    });
+
+    document.addEventListener("mousemove", (event) => {
+        if (!dragging) return;
+
+        updateSlider(event.clientX);
+    });
+
+    document.addEventListener("mouseup", () => {
+        dragging = false;
+    });
+
+
+    /* Touch */
+
+    handle.addEventListener("touchstart", (event) => {
+        dragging = true;
+        event.preventDefault();
+    }, { passive: false });
+
+    document.addEventListener("touchmove", (event) => {
+
+        if (!dragging) return;
+
+        updateSlider(event.touches[0].clientX);
+
+        event.preventDefault();
+
+    }, { passive: false });
+
+    document.addEventListener("touchend", () => {
+        dragging = false;
+    });
+
+
+    /* Klick auf das Bild */
+
+    slider.addEventListener("click", (event) => {
+
+        if (
+            event.target === handle ||
+            handle.contains(event.target)
+        ) {
+            return;
+        }
+
+        updateSlider(event.clientX);
+    });
+
     // Overlay erstellen
     const overlay = document.createElement("div");
     overlay.id = "bild-overlay";
