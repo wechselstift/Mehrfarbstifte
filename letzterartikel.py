@@ -574,24 +574,24 @@ def main():
 
 
 replacement = f"""
-<article class="last-article">
+        <article class="last-article">
 
-    <div class="last-article-content">
+            <div class="last-article-content">
 
-        <a href="{article_file.name}">
-            <strong>{display_name}</strong>
-        </a>
+                <a href="{article_file.name}">
+                    <strong>{display_name}</strong>
+                </a>
 
-        <time datetime="{modified_date.isoformat()}">
-            Zuletzt geändert: {formatted_date}
-        </time>
+                <time datetime="{modified_date.isoformat()}">
+                    Zuletzt geändert: {formatted_date}
+                </time>
 
-    </div>
+            </div>
 
-    {image_html}
-
-</article>
-""".strip()
+            {image_html}
+    
+        </article>
+    """.strip()
 
 
 
