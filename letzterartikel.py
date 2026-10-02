@@ -193,58 +193,117 @@ class LinkParser(HTMLParser):
 def get_article_display_name(article_file):
 
     if not LINK_FILE.exists():
-
         raise RuntimeError(
-            f"Die Link-Datei wurde nicht gefunden: "
-            f"{LINK_FILE}"
+            f"Die Link-Datei wurde nicht gefunden: {LINK_FILE}"
         )
 
-
-    # NUR der Dateiname!
-    target_filename = Path(
-        article_file
-    ).name
-
+    target_filename = Path(article_file).name.lower()
 
     print()
     print("========================================")
-    print(" Suche Link")
+    print(" Suche Link in:", LINK_FILE.name)
+    print(" Gesucht:", target_filename)
     print("========================================")
-    print(
-        f"Link-Datei: {LINK_FILE.name}"
-    )
-    print(
-        f"Gesuchte Datei: {target_filename}"
-    )
     print()
 
+    html = LINK_FILE.read_text(encoding="utf-8")
 
-    html = LINK_FILE.read_text(
-        encoding="utf-8"
-    )
+    class FindLinkParser(HTMLParser):
 
+        def __init__(self, target):
+            super().__init__()
 
-    parser = LinkParser(
+            self.target = target
+
+            self.inside_matching_link = False
+            self.text_parts = []
+
+            self.result = None
+
+        def handle_starttag(self, tag, attrs):
+
+            if tag.lower() != "a":
+                return
+
+            attributes = dict(attrs)
+
+            href = attributes.get("href")
+
+            if not href:
+                return
+
+            href = href.strip()
+
+            # Anker entfernen
+            href = href.split("#", 1)[0]
+
+            # Query entfernen
+            href = href.split("?", 1)[0]
+
+            # Backslashes entfernen
+            href = href.replace("\\", "/")
+
+            # Nur Dateiname vergleichen
+            href_filename = Path(href).name.lower()
+
+            print(
+                f"Prüfe href: {href_filename} "
+                f"gegen {self.target}"
+            )
+
+            if href_filename == self.target:
+
+                print(">>> TREFFER!")
+
+                self.inside_matching_link = True
+                self.text_parts = []
+
+        def handle_data(self, data):
+
+            if self.inside_matching_link:
+                self.text_parts.append(data)
+
+        def handle_endtag(self, tag):
+
+            if (
+                tag.lower() == "a"
+                and self.inside_matching_link
+            ):
+
+                text = "".join(
+                    self.text_parts
+                ).strip()
+
+                text = " ".join(
+                    text.split()
+                )
+
+                print(
+                    f">>> TEXT DES LINKS: {text!r}"
+                )
+
+                self.result = text
+
+                self.inside_matching_link = False
+
+    parser = FindLinkParser(
         target_filename
     )
 
     parser.feed(html)
 
-
-    if parser.found_text:
-
-        print(
-            f"✓ Gefunden: {parser.found_text}"
-        )
+    if parser.result:
 
         print()
+        print(
+            f"✓ Gefunden: {parser.result}"
+        )
+        print()
 
-        return parser.found_text
-
+        return parser.result
 
     raise RuntimeError(
-        f"Kein Link für "
-        f"'{target_filename}' "
+        f"Kein Link für '{target_filename}' "
         f"in '{LINK_FILE.name}' gefunden."
     )
 
