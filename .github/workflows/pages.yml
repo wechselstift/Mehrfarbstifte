@@ -23,29 +23,33 @@ jobs:
 
     steps:
 
-      # Repository inklusive kompletter Git-Historie laden
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      # Python bereitstellen
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.x"
 
-      # Zuletzt geänderten Artikel ermitteln
-      # und index.html im Build-Verzeichnis aktualisieren
       - name: Update last article
         run: |
           python letzterartikel.py
 
-      # GitHub Pages vorbereiten
+      - name: Check generated index
+        run: |
+          echo "========================================"
+          echo "GENERIERTE INDEX.HTML"
+          echo "========================================"
+
+          grep -A 15 -B 3 "AUTO:LAST-ARTICLE" index.html
+
+          echo "========================================"
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      # Fertige Website hochladen
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
