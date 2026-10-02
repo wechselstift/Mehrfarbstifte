@@ -184,7 +184,7 @@ def get_article_display_name(article_file):
 
 
     parser = LinkParser(
-        article_file.name
+        article_file
     )
 
     parser.feed(html)
