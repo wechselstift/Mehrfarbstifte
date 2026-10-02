@@ -538,9 +538,10 @@ def main():
     display_name = get_article_display_name(
         article_file
     )
-image = get_article_image(
-    article_file
-)
+    
+    image = get_article_image(
+        article_file
+    )
 
 
     # --------------------------------------------------------
@@ -567,7 +568,7 @@ image = get_article_image(
         </div>
     """.strip()
 
-else:
+    else:
 
     image_html = ""
 
