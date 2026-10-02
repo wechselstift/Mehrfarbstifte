@@ -1,4 +1,6 @@
 import subprocess
+import html
+
 import re
 from pathlib import Path
 from html.parser import HTMLParser
@@ -31,6 +33,84 @@ END_MARKER = "<!-- /AUTO:LAST-ARTICLE -->"
 # ============================================================
 # TITEL-PARSER
 # ============================================================
+
+def get_article_image(article_file):
+
+    try:
+        content = article_file.read_text(
+            encoding="utf-8"
+        )
+    except Exception:
+        return None
+
+    # Alle img-Tags durchsuchen
+    pattern = re.compile(
+        r"<img\b([^>]*)>",
+        re.IGNORECASE | re.DOTALL
+    )
+
+    matches = pattern.findall(content)
+
+    if not matches:
+        return None
+
+    for attributes in matches:
+
+        src_match = re.search(
+            r'\bsrc\s*=\s*["\']([^"\']+)["\']',
+            attributes,
+            re.IGNORECASE
+        )
+
+        if not src_match:
+            continue
+
+        src = src_match.group(1).strip()
+
+        if not src:
+            continue
+
+        # HTML-Entities zurückwandeln
+        src = html.unescape(src)
+
+        # Absolute externe Bilder nicht verändern
+        if (
+            src.startswith("http://")
+            or src.startswith("https://")
+            or src.startswith("//")
+            or src.startswith("data:")
+        ):
+            return src
+
+        # Anker entfernen
+        src = src.split("#", 1)[0]
+
+        # Query entfernen
+        src = src.split("?", 1)[0]
+
+        # Backslashes korrigieren
+        src = src.replace("\\", "/")
+
+        # Bildpfad relativ zum Artikel auflösen
+        image_path = (
+            article_file.parent / src
+        ).resolve()
+
+        try:
+            relative_image = image_path.relative_to(
+                ROOT.resolve()
+            )
+
+            return relative_image.as_posix()
+
+        except ValueError:
+            # Bild liegt außerhalb des Repository-Ordners
+            return src
+
+    return None
+
+
+
 
 class TitleParser(HTMLParser):
 
@@ -458,6 +538,9 @@ def main():
     display_name = get_article_display_name(
         article_file
     )
+image = get_article_image(
+    article_file
+)
 
 
     # --------------------------------------------------------
@@ -473,19 +556,42 @@ def main():
     # HTML für index.html erzeugen
     # --------------------------------------------------------
 
-    replacement = f"""
+    if image:
+
+    image_html = f"""
+        <div class="last-article-image">
+            <img
+                src="{image}"
+                alt="{display_name}"
+            >
+        </div>
+    """.strip()
+
+else:
+
+    image_html = ""
+
+
+replacement = f"""
 <article class="last-article">
 
-    <a href="{article_file.name}">
-        <strong>{display_name}</strong>
-    </a>
+    <div class="last-article-content">
 
-    <time datetime="{modified_date.isoformat()}">
-        Zuletzt geändert: {formatted_date}
-    </time>
+        <a href="{article_file.name}">
+            <strong>{display_name}</strong>
+        </a>
+
+        <time datetime="{modified_date.isoformat()}">
+            Zuletzt geändert: {formatted_date}
+        </time>
+
+    </div>
+
+    {image_html}
 
 </article>
 """.strip()
+
 
 
     # --------------------------------------------------------
