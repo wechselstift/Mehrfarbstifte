@@ -348,7 +348,7 @@ def main():
     # --------------------------------------------------------
 
     display_name = get_article_display_name(
-        article_file.name
+        article_file
     )
 
 
