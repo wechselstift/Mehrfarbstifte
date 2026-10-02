@@ -573,7 +573,7 @@ def main():
     )
 
 
-replacement = f"""
+    replacement = f"""
         <article class="last-article">
 
             <div class="last-article-content">
