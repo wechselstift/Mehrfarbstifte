@@ -570,7 +570,7 @@ def main():
 
     else:
 
-    image_html = ""
+        image_html = ""
 
 
 replacement = f"""
