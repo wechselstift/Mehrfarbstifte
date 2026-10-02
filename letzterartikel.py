@@ -559,14 +559,14 @@ def main():
 
     if image:
 
-    image_html = f"""
-        <div class="last-article-image">
-            <img
-                src="{image}"
-                alt="{display_name}"
-            >
-        </div>
-    """.strip()
+        image_html = f"""
+            <div class="last-article-image">
+                <img
+                    src="{image}"
+                    alt="{display_name}"
+                >
+            </div>
+        """.strip()
 
     else:
 
