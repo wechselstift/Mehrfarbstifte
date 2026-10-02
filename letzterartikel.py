@@ -196,7 +196,7 @@ def get_article_display_name(article_file):
 
 
     raise RuntimeError(
-        f"Kein Link für '{article_file.name}' "
+        f"Kein Link für '{article_file}' "
         f"in '{LINK_FILE.name}' gefunden."
     )
 
