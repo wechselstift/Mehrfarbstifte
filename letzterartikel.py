@@ -544,14 +544,7 @@ def main():
     )
 
 
-    # --------------------------------------------------------
-    # Datum formatieren
-    # --------------------------------------------------------
-
-    formatted_date = modified_date.strftime(
-        "%d.%m.%Y"
-    )
-
+ 
 
     # --------------------------------------------------------
     # HTML für index.html erzeugen
@@ -569,8 +562,15 @@ def main():
         """.strip()
 
     else:
-
         image_html = ""
+
+   # --------------------------------------------------------
+    # Datum formatieren
+    # --------------------------------------------------------
+
+    formatted_date = modified_date.strftime(
+        "%d.%m.%Y"
+    )
 
 
 replacement = f"""
