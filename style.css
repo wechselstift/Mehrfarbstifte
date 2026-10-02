@@ -413,7 +413,11 @@ ul li::before {
 font-size:20px;
     min-height: 150px;
     gap: 20px;
-	padding-right:20px;
+	padding-right:40px;
+	padding-left: 20px;
+	background-image:url(images/rahmen9.webp); 
+	background-size: 100% 100%; 
+	margin-top:-12px;
 }
 
 .last-article-content {
@@ -427,7 +431,7 @@ font-size:20px;
 .last-article-content time {
     display: block;
     margin-top: 8px;
-    font-size: 0.9em;
+    font-size: 0.6em;
 }
 
 .last-article-image {
