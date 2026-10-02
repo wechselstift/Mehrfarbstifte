@@ -5,28 +5,32 @@ from html.parser import HTMLParser
 from datetime import datetime
 
 
-# ==================================================
-# Pfade
-# ==================================================
+# ============================================================
+# PFADE
+# ============================================================
 
 # Ordner, in dem dieses Script liegt
 ROOT = Path(__file__).resolve().parent
 
-# index.html liegt ebenfalls hier
+# Startseite
 INDEX_FILE = ROOT / "index.html"
 
+# HTML-Datei, in der deine Links stehen
+# >>> HIER ggf. den Dateinamen ändern <<<
+LINK_FILE = ROOT / "rechts.html"
 
-# ==================================================
-# Marker in index.html
-# ==================================================
+
+# ============================================================
+# MARKER IN index.html
+# ============================================================
 
 START_MARKER = "<!-- AUTO:LAST-ARTICLE -->"
 END_MARKER = "<!-- /AUTO:LAST-ARTICLE -->"
 
 
-# ==================================================
-# HTML <title> auslesen
-# ==================================================
+# ============================================================
+# TITEL-PARSER
+# ============================================================
 
 class TitleParser(HTMLParser):
 
@@ -78,7 +82,6 @@ def get_title(path):
 
         print(error)
 
-    # Fallback auf Dateinamen
     return (
         path.stem
         .replace("-", " ")
@@ -87,9 +90,120 @@ def get_title(path):
     )
 
 
-# ==================================================
-# Letzte Änderung einer Datei aus Git holen
-# ==================================================
+# ============================================================
+# LINK-PARSER
+# ============================================================
+
+class LinkParser(HTMLParser):
+
+    def __init__(self, target_file):
+
+        super().__init__()
+
+        self.target_file = target_file
+
+        self.current_href = None
+        self.current_text = []
+
+        self.found_text = None
+
+
+    def handle_starttag(self, tag, attrs):
+
+        if tag.lower() != "a":
+            return
+
+        attributes = dict(attrs)
+
+        href = attributes.get("href")
+
+        if href is None:
+            return
+
+
+        # Nur Dateinamen vergleichen.
+        #
+        # Dadurch funktionieren auch:
+        #
+        # href="bossert.html"
+        # href="./bossert.html"
+        # href="unterordner/bossert.html"
+        #
+
+        href_path = Path(href.split("#")[0].split("?")[0])
+
+        if href_path.name == self.target_file:
+
+            self.current_href = href
+            self.current_text = []
+
+
+    def handle_data(self, data):
+
+        if self.current_href:
+
+            self.current_text.append(data)
+
+
+    def handle_endtag(self, tag):
+
+        if (
+            tag.lower() == "a"
+            and self.current_href
+        ):
+
+            text = " ".join(
+                "".join(self.current_text).split()
+            )
+
+            if text:
+
+                self.found_text = text
+
+            self.current_href = None
+            self.current_text = []
+
+
+# ============================================================
+# NAMEN AUS LINK-DATEI HOLEN
+# ============================================================
+
+def get_article_display_name(article_file):
+
+    if not LINK_FILE.exists():
+
+        raise RuntimeError(
+            f"Die Link-Datei wurde nicht gefunden: "
+            f"{LINK_FILE}"
+        )
+
+
+    html = LINK_FILE.read_text(
+        encoding="utf-8"
+    )
+
+
+    parser = LinkParser(
+        article_file.name
+    )
+
+    parser.feed(html)
+
+
+    if parser.found_text:
+
+        return parser.found_text
+
+
+    raise RuntimeError(
+        f"Kein Link für '{article_file.name}' "
+        f"in '{LINK_FILE.name}' gefunden."
+    )
+
+
+# ============================================================
+# GIT-DATUM EINER DATEI
+# ============================================================
 
 def get_git_date(path):
 
@@ -107,29 +221,45 @@ def get_git_date(path):
         check=True
     )
 
+
     date_string = result.stdout.strip()
 
+
     if not date_string:
+
         return None
 
+
     return datetime.fromisoformat(
-        date_string.replace("Z", "+00:00")
+        date_string.replace(
+            "Z",
+            "+00:00"
+        )
     )
 
 
-# ==================================================
-# Zuletzt geänderte HTML-Datei finden
-# ==================================================
+# ============================================================
+# ZULETZT GEÄNDERTE HTML-DATEI FINDEN
+# ============================================================
 
 def get_last_modified_file():
 
     # Nur HTML-Dateien im gleichen Ordner.
-    # Keine Unterordner.
+    #
+    # index.html wird ausgeschlossen.
+    # sidemenu.html wird ebenfalls ausgeschlossen,
+    # weil es keine eigentliche Artikelseite ist.
+
     files = [
         file
         for file in ROOT.glob("*.html")
-        if file.name.lower() != "index.html"
+        if file.name.lower()
+        not in {
+            "index.html",
+            LINK_FILE.name.lower()
+        }
     ]
+
 
     if not files:
 
@@ -146,7 +276,9 @@ def get_last_modified_file():
 
         date = get_git_date(file)
 
+
         if date is None:
+
             continue
 
 
@@ -169,9 +301,9 @@ def get_last_modified_file():
     return latest_file, latest_date
 
 
-# ==================================================
-# Hauptprogramm
-# ==================================================
+# ============================================================
+# HAUPTPROGRAMM
+# ============================================================
 
 def main():
 
@@ -182,7 +314,9 @@ def main():
     print()
 
 
-    # Prüfen, ob index.html existiert
+    # --------------------------------------------------------
+    # Dateien prüfen
+    # --------------------------------------------------------
 
     if not INDEX_FILE.exists():
 
@@ -192,45 +326,50 @@ def main():
         )
 
 
-    # Artikel suchen
+    if not LINK_FILE.exists():
+
+        raise RuntimeError(
+            f"Die Link-Datei wurde nicht gefunden: "
+            f"{LINK_FILE}"
+        )
+
+
+    # --------------------------------------------------------
+    # Zuletzt geänderten Artikel ermitteln
+    # --------------------------------------------------------
 
     article_file, modified_date = (
         get_last_modified_file()
     )
 
 
-    # Titel aus HTML holen
+    # --------------------------------------------------------
+    # Namen aus der Link-Datei holen
+    # --------------------------------------------------------
 
-    title = get_title(article_file)
-
-
-    # --------------------------------------------------
-    # Link erzeugen
-    # --------------------------------------------------
-
-    # Da index.html und Artikel im selben Ordner liegen,
-    # reicht der Dateiname.
-    link = article_file.name
+    display_name = get_article_display_name(
+        article_file.name
+    )
 
 
-    # --------------------------------------------------
-    # Datum
-    # --------------------------------------------------
+    # --------------------------------------------------------
+    # Datum formatieren
+    # --------------------------------------------------------
 
     formatted_date = modified_date.strftime(
         "%d.%m.%Y"
     )
 
 
-    # --------------------------------------------------
-    # HTML erzeugen
-    # --------------------------------------------------
+    # --------------------------------------------------------
+    # HTML für index.html erzeugen
+    # --------------------------------------------------------
 
     replacement = f"""
 <article class="last-article">
 
-    <a href="{link}">
-        <strong>{title}</strong>
+    <a href="{article_file.name}">
+        <strong>{display_name}</strong>
     </a>
 
     <time datetime="{modified_date.isoformat()}">
@@ -241,56 +380,122 @@ def main():
 """.strip()
 
 
-    # --------------------------------------------------
+    # --------------------------------------------------------
     # index.html lesen
-    # --------------------------------------------------
+    # --------------------------------------------------------
 
     index = INDEX_FILE.read_text(
         encoding="utf-8"
     )
 
 
-    # --------------------------------------------------
-    # Marker ersetzen
-    # --------------------------------------------------
+    # --------------------------------------------------------
+    # Marker suchen
+    # --------------------------------------------------------
 
-    pattern = (
-        re.escape(START_MARKER)
-        + r".*?"
-        + re.escape(END_MARKER)
+    start_pos = index.find(
+        START_MARKER
+    )
+
+    end_pos = index.find(
+        END_MARKER
     )
 
 
-    new_content = re.sub(
-        pattern,
+    if start_pos == -1 or end_pos == -1:
 
-        (
-            START_MARKER
-            + "\n\n"
-            + replacement
-            + "\n\n"
-            + END_MARKER
-        ),
+        print(
+            "========================================"
+        )
 
-        index,
+        print(
+            "FEHLER: MARKER NICHT GEFUNDEN"
+        )
 
-        flags=re.DOTALL
-    )
+        print(
+            "========================================"
+        )
 
+        print()
 
-    # Marker nicht gefunden?
+        print(
+            "Gesuchter Start-Marker:"
+        )
 
-    if new_content == index:
+        print(
+            repr(START_MARKER)
+        )
+
+        print()
+
+        print(
+            "Gesuchter End-Marker:"
+        )
+
+        print(
+            repr(END_MARKER)
+        )
+
+        print()
+
+        print(
+            "AUTO-Zeilen in index.html:"
+        )
+
+        for number, line in enumerate(
+            index.splitlines(),
+            1
+        ):
+
+            if "AUTO" in line:
+
+                print(
+                    f"{number}: {repr(line)}"
+                )
+
 
         raise RuntimeError(
-            "Die Marker in index.html wurden "
-            "nicht gefunden."
+            "Die Marker in index.html "
+            "wurden nicht gefunden."
         )
 
 
-    # --------------------------------------------------
-    # index.html schreiben
-    # --------------------------------------------------
+    if end_pos < start_pos:
+
+        raise RuntimeError(
+            "Der End-Marker steht vor "
+            "dem Start-Marker."
+        )
+
+
+    # --------------------------------------------------------
+    # Bereich zwischen den Markern ersetzen
+    # --------------------------------------------------------
+
+    new_content = (
+
+        index[:start_pos]
+
+        + START_MARKER
+
+        + "\n\n"
+
+        + replacement
+
+        + "\n\n"
+
+        + END_MARKER
+
+        + index[
+            end_pos
+            + len(END_MARKER):
+        ]
+    )
+
+
+    # --------------------------------------------------------
+    # index.html speichern
+    # --------------------------------------------------------
 
     INDEX_FILE.write_text(
         new_content,
@@ -298,24 +503,59 @@ def main():
     )
 
 
-    # ==================================================
-    # Ausgabe für GitHub Actions
-    # ==================================================
+    # ========================================================
+    # AUSGABE FÜR GITHUB ACTIONS
+    # ========================================================
 
     print()
-    print("========================================")
-    print("        ZULETZT GEÄNDERTER ARTIKEL")
-    print("========================================")
-    print()
-    print(f"Datei:   {article_file.name}")
-    print(f"Titel:   {title}")
-    print(f"Datum:   {formatted_date}")
-    print(f"Link:    {link}")
-    print()
-    print("✓ index.html wurde aktualisiert.")
-    print("========================================")
+
+    print(
+        "========================================"
+    )
+
+    print(
+        "        ZULETZT GEÄNDERTER ARTIKEL"
+    )
+
+    print(
+        "========================================"
+    )
+
     print()
 
+    print(
+        f"Datei:   {article_file.name}"
+    )
+
+    print(
+        f"Name:    {display_name}"
+    )
+
+    print(
+        f"Datum:   {formatted_date}"
+    )
+
+    print(
+        f"Link:    {article_file.name}"
+    )
+
+    print()
+
+    print(
+        "✓ index.html wurde aktualisiert."
+    )
+
+    print(
+        "========================================"
+    )
+
+    print()
+
+
+# ============================================================
+# START
+# ============================================================
 
 if __name__ == "__main__":
+
     main()
