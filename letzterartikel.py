@@ -96,11 +96,16 @@ def get_title(path):
 
 class LinkParser(HTMLParser):
 
-    def __init__(self, target_file):
+    def __init__(self, target_filename):
 
         super().__init__()
 
-        self.target_file = target_file
+        # WICHTIG:
+        # Nur der Dateiname wird verglichen,
+        # niemals der komplette Pfad.
+        self.target_filename = Path(
+            target_filename
+        ).name.lower()
 
         self.current_href = None
         self.current_text = []
@@ -117,22 +122,36 @@ class LinkParser(HTMLParser):
 
         href = attributes.get("href")
 
-        if href is None:
+        if not href:
             return
 
 
-        # Nur Dateinamen vergleichen.
-        #
-        # Dadurch funktionieren auch:
-        #
-        # href="bossert.html"
-        # href="./bossert.html"
-        # href="unterordner/bossert.html"
-        #
+        # href bereinigen
+        href = href.strip()
 
-        href_path = Path(href.split("#")[0].split("?")[0])
+        # Anker entfernen
+        href = href.split("#", 1)[0]
 
-        if href_path.name == self.target_file:
+        # Query-String entfernen
+        href = href.split("?", 1)[0]
+
+        # Backslashes korrigieren
+        href = href.replace("\\", "/")
+
+
+        # Nur der Dateiname des href
+        href_filename = Path(
+            href
+        ).name.lower()
+
+
+        print(
+            f"Prüfe href: {href_filename} "
+            f"gegen {self.target_filename}"
+        )
+
+
+        if href_filename == self.target_filename:
 
             self.current_href = href
             self.current_text = []
@@ -140,7 +159,7 @@ class LinkParser(HTMLParser):
 
     def handle_data(self, data):
 
-        if self.current_href:
+        if self.current_href is not None:
 
             self.current_text.append(data)
 
@@ -149,16 +168,20 @@ class LinkParser(HTMLParser):
 
         if (
             tag.lower() == "a"
-            and self.current_href
+            and self.current_href is not None
         ):
 
             text = " ".join(
-                "".join(self.current_text).split()
+                "".join(
+                    self.current_text
+                ).split()
             )
+
 
             if text:
 
                 self.found_text = text
+
 
             self.current_href = None
             self.current_text = []
@@ -167,7 +190,6 @@ class LinkParser(HTMLParser):
 # ============================================================
 # NAMEN AUS LINK-DATEI HOLEN
 # ============================================================
-
 def get_article_display_name(article_file):
 
     if not LINK_FILE.exists():
@@ -178,13 +200,32 @@ def get_article_display_name(article_file):
         )
 
 
+    # NUR der Dateiname!
+    target_filename = Path(
+        article_file
+    ).name
+
+
+    print()
+    print("========================================")
+    print(" Suche Link")
+    print("========================================")
+    print(
+        f"Link-Datei: {LINK_FILE.name}"
+    )
+    print(
+        f"Gesuchte Datei: {target_filename}"
+    )
+    print()
+
+
     html = LINK_FILE.read_text(
         encoding="utf-8"
     )
 
 
     parser = LinkParser(
-        article_file
+        target_filename
     )
 
     parser.feed(html)
@@ -192,13 +233,21 @@ def get_article_display_name(article_file):
 
     if parser.found_text:
 
+        print(
+            f"✓ Gefunden: {parser.found_text}"
+        )
+
+        print()
+
         return parser.found_text
 
 
     raise RuntimeError(
-        f"Kein Link für '{article_file}' "
+        f"Kein Link für "
+        f"'{target_filename}' "
         f"in '{LINK_FILE.name}' gefunden."
     )
+
 
 
 # ============================================================
