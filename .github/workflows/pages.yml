@@ -39,7 +39,7 @@ jobs:
       # und index.html im Build-Verzeichnis aktualisieren
       - name: Update last article
         run: |
-          python scripts/update_last_article.py
+          python letzterartikel.py
 
       # GitHub Pages vorbereiten
       - name: Setup Pages
